@@ -29,6 +29,7 @@ Testing if Rmd is rendered when I push
 
 ```{r print}
 print("successfully rendered!")
+print("again!")
 ```
 
 
