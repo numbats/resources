@@ -1,13 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-Testing if Rmd is rendered when I push
-
-``` r
-print("successfully rendered - hopefully, I hope, please?")
-#> [1] "successfully rendered - hopefully, I hope, please?"
-```
-
 # resources
 
 <!-- badges: start -->
@@ -31,6 +24,7 @@ The core principles for the resources on this page are:
 
 The current areas covered are:
 
+  - About {-}
   - shiny
   - Reporting problems with your code
   - Debugging in R
