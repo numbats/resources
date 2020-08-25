@@ -11,7 +11,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r library}
+```{r library, echo = FALSE}
 library(stringr)
 library(glue)
 # install.packages("remotes")
@@ -23,6 +23,12 @@ library(epoxy)
 index_rmd <- readLines("index.Rmd")
 topic_list <- str_subset(index_rmd, "^# ") %>% 
   str_remove_all("# ")
+```
+
+Testing if Rmd is rendered when I push
+
+```{r print}
+print("successfully rendered!")
 ```
 
 
