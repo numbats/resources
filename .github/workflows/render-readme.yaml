@@ -17,6 +17,7 @@ jobs:
         run: |
           install.packages("remotes")
           remotes::install_cran("rmarkdown")
+          remotes::install_github("gadenbuie/epoxy")
         shell: Rscript {0}
       - name: Render README
         run: Rscript -e 'rmarkdown::render("README.Rmd")'
