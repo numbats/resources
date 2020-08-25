@@ -28,8 +28,7 @@ topic_list <- str_subset(index_rmd, "^# ") %>%
 Testing if Rmd is rendered when I push
 
 ```{r print}
-print("successfully rendered!")
-print("again!")
+print("successfully rendered - hopefully, I hope, please?")
 ```
 
 

@@ -17,6 +17,7 @@ jobs:
         run: |
           install.packages("remotes")
           remotes::install_cran("rmarkdown")
+          message("installing epoxy hopefully this works")
           remotes::install_github("gadenbuie/epoxy")
         shell: Rscript {0}
       - name: Render README
