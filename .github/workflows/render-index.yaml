@@ -1,13 +1,13 @@
 on:
   push:
     paths:
-      - README.Rmd
+      - index.Rmd
 
-name: Render README
+name: Render index
 
 jobs:
   render:
-    name: Render README
+    name: Render index
     runs-on: macOS-latest
     steps:
       - uses: actions/checkout@v2
@@ -17,13 +17,12 @@ jobs:
         run: |
           install.packages("remotes")
           remotes::install_cran("rmarkdown")
-          remotes::install_github("gadenbuie/epoxy")
         shell: Rscript {0}
-      - name: Render README
-        run: Rscript -e 'rmarkdown::render("README.Rmd")'
+      - name: Render index
+        run: Rscript -e 'rmarkdown::render("index.Rmd")'
       - name: Commit results
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git commit README.md -m 'Re-build README.Rmd' || echo "No changes to commit"
+          git commit index.html -m 'Re-build index.Rmd' || echo "No changes to commit"
           git push origin || echo "No changes to commit"

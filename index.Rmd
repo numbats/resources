@@ -9,6 +9,12 @@ output:
     toc_float: true
 ---
 
+# About {-}
+
+This page provides a set of curated resources for learning concepts in R. The 
+concepts are grouped in level 1 headers, that you can access through the 
+floating table of contents.
+
 # shiny
 
 ## Introductory
