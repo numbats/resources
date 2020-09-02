@@ -1,7 +1,6 @@
 on:
   push:
-    paths:
-      - index.Rmd
+    branches: master
 
 name: Render index
 
@@ -19,7 +18,9 @@ jobs:
           remotes::install_cran("rmarkdown")
         shell: Rscript {0}
       - name: Render index
-        run: Rscript -e 'rmarkdown::render("index.Rmd")'
+        run: |
+          Rscript -e 'rmarkdown::render("index.Rmd")'
+          Rscript -e 'file.exists("index.html")'
       - name: Commit results
         run: |
           git config --local user.email "actions@github.com"
