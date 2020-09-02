@@ -1,7 +1,6 @@
 ---
 title: "Resources for learning R"
 author: "Nicholas Tierney"
-date: `r format(Sys.Date(), "Last Updated: %Y-%m-%d at %T")`
 output: 
   html_document:
     theme: readable
