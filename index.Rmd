@@ -1,7 +1,7 @@
 ---
-title: "Resources"
+title: "Resources for learning R"
 author: "Nicholas Tierney"
-date: "20/08/2020"
+date: `r format(Sys.Date(), "Last Updated: %Y-%m-%d at %T")`
 output: 
   html_document:
     theme: readable
@@ -13,7 +13,7 @@ output:
 
 This page provides a set of curated resources for learning concepts in R. The 
 concepts are grouped in level 1 headers, that you can access through the 
-floating table of contents. In the future this will be developed to automatically update on push.
+floating table of contents.
 
 # shiny
 
