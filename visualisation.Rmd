@@ -1,13 +1,24 @@
 # Visualisation
 
-
 ## ggplot2
 
--   Introduction:
+If you are going to do a plot in R, you should consider using ggplot2 for most use cases. It takes a short time to get the hang of, and once you've got it down you can create plots that make sense, behave how you expect, and look fantastic.
 
-    -   https://r4ds.had.co.nz/data-visualisation.html
+ggplot follows a logical syntax adapted from the book "The Grammar of Graphics". It makes visualisation make sense. And there are lots of other packages that build upon it to make it more awesome, such as [GGally](https://ggobi.github.io/ggally/), [ggalt](https://github.com/hrbrmstr/ggalt), [ggExtra](https://cran.r-project.org/web/packages/ggExtra/index.html), [ggforce](https://cran.r-project.org/web/packages/ggforce/index.html), [gganimate](https://github.com/dgrtwo/gganimate), and [ggbeeswarm](https://cran.r-project.org/web/packages/ggbeeswarm/index.html), to name a few!
+
+Here are some ggplot resources in order of usefulness
+
+
+- The [RStudio ggplot cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/05/ggplot2-cheatsheet.pdf) sits pinned up above my desk.
+-   https://r4ds.had.co.nz/data-visualisation.html
     -   https://r4ds.had.co.nz/graphics-for-communication.html
+- [The official documentation](ggplot2.tidyverse.org)
+- [The R Graphics Cookbook](https://www.cookbook-r.com/Graphs/) usually has the answers for what I'm after.
+- I also recently discovered the [ggplot2 wiki](https://github.com/hadley/ggplot2/wiki), which has some great case studies and examples.
+- [This handout](https://www.ceb-institute.org/bbs/wp-content/uploads/2011/09/handout_ggplot2.pdf) provides an introduction to ggplot.
 
--   Detailed:
-    -   https://ggplot2.tidyverse.org/
-    -   https://ggplot2-book.org/
+For more detailed explanations on ggplot2, how it works, how to create your own geoms, and more, I'd recommend [the official book](https://ggplot2-book.org/), and Bob Rudis' short book on [creating ggplot2 extensions](https://rud.is/books/creating-ggplot2-extensions/)
+
+# plotly
+
+Plotly for R, written and maintained by [Carson Sievert](https://cpsievert.github.io), is a very powerful and flexible interactive plotting engine in R. It has a fully fledged API for writing interactive graphics in R, as well as a fantastic function that gives the user a lot for free: `ggplotly`. You can read more about plotly for R in Carson's [free and online book](https://plotly-r.com/).

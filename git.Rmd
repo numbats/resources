@@ -1,0 +1,17 @@
+# git and version control
+
+If you write code or plain text (LaTeX, RMarkdown, Markdown, R, c++ or even .txt), you should really consider using git to help manage your workflow. It's like Dropbox on steriod.
+
+To get started I would recommend 2 things to get started:
+
+1. Read Jenny Bryan's awesome book, [Happy git with R](https://happygitwithr.com/).
+2. [Download GitKraken](https://www.gitkraken.com/), it's the best free GUI for interacting with git.
+
+Some other great resources include:
+
+- Miles McBain's [git for scientists](https://milesmcbain.github.io/git_4_sci/)
+- [these slides](https://slides.com/michaelfreeman/git-collaboration#/1)
+- [git - the simple guide](https://rogerdudler.github.io/git-guide/)
+- [oh shit, git!](https://ohshitgit.com/)
+
+I would also really recommend reading an article by [Karthik Ram](https://inundata.org/), ["Git can facilitate greater reproducibility and increased transparency in science"](https://scfbm.biomedcentral.com/track/pdf/10.1186/1751-0473-8-7?site=scfbm.biomedcentral.com).

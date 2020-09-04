@@ -4,10 +4,12 @@ language:
   ui:
     chapter_name: "Chapter "
 rmd_files: [ "index.Rmd",
+             "git.Rmd",
              "shiny.Rmd",
              "reporting-problems.Rmd",
              "debug.Rmd",
              "visualisation.Rmd",
+             "spatial-data.Rmd",
              "vectors-and-lists.Rmd",
              "data-frame-and-tibble.Rmd",
              "functions.Rmd",
