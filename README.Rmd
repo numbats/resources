@@ -23,6 +23,7 @@ library(epoxy)
 # resources
 
 <!-- badges: start -->
+[![Netlify Status](https://api.netlify.com/api/v1/badges/be8234bf-10d0-431b-bf4c-c03acef359fd/deploy-status)](https://app.netlify.com/sites/numbat-resources/deploys)
 <!-- badges: end -->
 
 This page exists to help collate together R resources for the NUMBATs group, to direct students to places to learn more about specific R content. It is not intended as a replacement for courses, but instead a place where people can go to learn more.
