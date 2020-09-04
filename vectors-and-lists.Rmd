@@ -1,0 +1,11 @@
+# Vectors and Lists
+
+## Vectors
+
+-   Detailed:
+    -   https://adv-r.hadley.nz/vectors-chap.html
+
+## Lists
+
+-   Detailed:
+    -   https://adv-r.hadley.nz/vectors-chap.html\#lists

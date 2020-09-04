@@ -1,0 +1,13 @@
+# Slides and Presentations
+
+## Xaringan slides
+
+-   https://slides.yihui.org/xaringan/\#1
+
+-   Enhancing slides:
+
+    -   5 minute video: https://www.youtube.com/watch?v=vZMuu77ocMY&t=2s
+
+    -   {xaringanthemer}:  https://pkg.garrickadenbuie.com/xaringanthemer/
+
+    -   {xaringanExtra}: \> https://pkg.garrickadenbuie.com/xaringanExtra/

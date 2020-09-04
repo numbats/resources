@@ -1,0 +1,23 @@
+# Flexdashboard
+
+Flexdashboard 
+- https://rmarkdown.rstudio.com/flexdashboard/
+
+## Creating your first flexdashboard
+
+- Embed Stuart's video
+
+
+## Sharing your dashboard online
+
+How do you share your flexdashboard with others? Here are a few approaches to that
+
+## Deploying flexdashboard online
+
+### Sharing via RStudio Connect / RPubs
+
+### Netlify Drag 'n' Drop
+
+This is a 5 minute video created by Nick Tierney for ETC1010. This runs through in real time (<5 minutes) how to use [netlify's drag and drop](https://app.netlify.com/drop) using flexdashboard as an example. This results in this link: https://dmac-example-flex.netlify.app/
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mAM7IYLbv30" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

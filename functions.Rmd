@@ -1,0 +1,11 @@
+# Functions
+
+-   Detailed:
+
+    -   https://adv-r.hadley.nz/functions.html
+
+-   On "functional" programming
+
+    -   https://adv-r.hadley.nz/fp.html
+
+-   Using vs creating functions
