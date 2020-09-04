@@ -70,18 +70,6 @@
       "Repository": "CRAN",
       "Hash": "f697db7d92b7028c4b3436e9603fb636"
     },
-    "epoxy": {
-      "Package": "epoxy",
-      "Version": "0.0.2.9000",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "epoxy",
-      "RemoteUsername": "gadenbuie",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "31d573881164812faaf1afc351a0d31b66dd3ff8",
-      "Hash": "a51910b88a08b2bc514dbba15eec3356"
-    },
     "evaluate": {
       "Package": "evaluate",
       "Version": "0.14",

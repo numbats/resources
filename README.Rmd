@@ -11,15 +11,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r library, echo = FALSE}
-library(stringr)
-library(glue)
-# install.packages("remotes")
-# remotes::install_github("gadenbuie/epoxy")
-library(epoxy)
-```
-
-
 # resources
 
 <!-- badges: start -->
@@ -34,14 +25,6 @@ The core principles for the resources on this page are:
 - The way these resources are distributed should be:
   - Accessible, reproducible, extendible
 - Links shared must work
-
-# Current areas covered
-
-The current areas covered are:
-
-```{glue}
-# - {topic_list}
-```
 
 # Got an idea? Want a resource on a particular area? 
 
