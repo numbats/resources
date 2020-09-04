@@ -1,0 +1,7 @@
+# Tidying data
+
+-   5 examples of long/wide to tidy
+
+    -   Anscombe's quartet (wide to long): https://www.njtierney.com/post/2020/06/01/tidy-anscombe/
+    
+-   5 example of general tidying

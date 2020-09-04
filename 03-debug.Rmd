@@ -1,0 +1,15 @@
+# Debugging in R
+
+-   <https://adv-r.hadley.nz/debugging.html>
+
+-   <https://jozef.io/r916-exploring-r-code-interactively/>
+
+-   <https://rstudio-education.github.io/hopr/debug.html>
+
+-   Using {debugonce}
+    - An approach for using {recover}, to help track down errors across multiple functions:
+    - <https://www.youtube.com/watch?v=M5n_2jmdJ_8>
+
+-   RStudio IDE break-points to track down errors in code, particularly \> if you have multiple functions
+
+    -   https://rstudio-education.github.io/hopr/debug.html\#break-points

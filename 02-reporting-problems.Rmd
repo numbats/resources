@@ -1,0 +1,6 @@
+# Reporting problems with your code
+
+-   `reprex`: {rep}roducible {ex}amples
+
+    -   (why reprex): <https://reprex.tidyverse.org/articles/articles/magic-reprex.html>
+    -   How to reprex: <https://reprex.tidyverse.org/articles/articles/learn-reprex.html>
