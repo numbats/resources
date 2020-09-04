@@ -19,11 +19,6 @@ library(glue)
 library(epoxy)
 ```
 
-```{r read-index, echo = FALSE}
-index_rmd <- readLines("index.Rmd")
-topic_list <- str_subset(index_rmd, "^# ") %>% 
-  str_remove_all("# ")
-```
 
 # resources
 
@@ -44,7 +39,7 @@ The core principles for the resources on this page are:
 The current areas covered are:
 
 ```{glue}
-- {topic_list}
+# - {topic_list}
 ```
 
 # Got an idea? Want a resource on a particular area? 

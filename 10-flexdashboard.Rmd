@@ -1,3 +1,0 @@
-# Flexdashboard
-
--   https://rmarkdown.rstudio.com/flexdashboard/

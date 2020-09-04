@@ -1,11 +1,13 @@
----
+--- 
 title: "Resources for learning R"
 author: "Nicholas Tierney"
-output: 
-  html_document:
-    theme: readable
-    toc: true
-    toc_float: true
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib]
+biblio-style: apalike
+link-citations: yes
+description: "R Resources"
 ---
 
 # About {-}
