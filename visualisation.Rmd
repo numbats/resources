@@ -19,6 +19,6 @@ Here are some ggplot resources in order of usefulness
 
 For more detailed explanations on ggplot2, how it works, how to create your own geoms, and more, I'd recommend [the official book](https://ggplot2-book.org/), and Bob Rudis' short book on [creating ggplot2 extensions](https://rud.is/books/creating-ggplot2-extensions/)
 
-# plotly
+## plotly
 
 Plotly for R, written and maintained by [Carson Sievert](https://cpsievert.github.io), is a very powerful and flexible interactive plotting engine in R. It has a fully fledged API for writing interactive graphics in R, as well as a fantastic function that gives the user a lot for free: `ggplotly`. You can read more about plotly for R in Carson's [free and online book](https://plotly-r.com/).
