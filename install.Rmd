@@ -1,0 +1,8 @@
+# Installing R
+
+To get started with R, you need to download and install R, and RStudio. The two guides below provide some good stepwise on getting started with installing R and RStudio.
+
+- [Stuart Lee's guide](https://github.com/sa-lee/installr)
+- [STAT 545's guide](https://stat545.stat.ubc.ca/tutorials/getting-unstuck/)
+
+I also recommend setting the default options for Rstudio as recommended in [this guide](https://rmd4sci.njtierney.com/rstudio-what-and-why.html#exercise-rstudio-default-options).

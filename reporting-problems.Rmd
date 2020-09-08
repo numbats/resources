@@ -1,6 +1,13 @@
 # Reporting problems with your code
 
--   `reprex`: {rep}roducible {ex}amples
+A [reproducible example](https://reprex.tidyverse.org/) helps you recreate a problem you are experiencing. This is really useful because it means that you can transport your problem very efficiently to someone else. Or, if you cannot reproduce the error, then it means there might be another issue, like referring to an object you created in another R session. You can read more about, `reprex`: {rep}roducible {ex}amples here:
 
-    -   (why reprex): <https://reprex.tidyverse.org/articles/articles/magic-reprex.html>
-    -   How to reprex: <https://reprex.tidyverse.org/articles/articles/learn-reprex.html>
+- (why reprex): <https://reprex.tidyverse.org/articles/articles/magic-reprex.html>
+- How to reprex: <https://reprex.tidyverse.org/articles/articles/learn-reprex.html>
+
+It takes a bit of practice to create reproducible examples, I find the following advice useful:
+
+1. Make the problem as small as you can. 
+  - Is the data 100 rows long? Does it need to be? Can you make it 3 rows long?
+2. Make the data transportable. 
+  - Is your data sensitive? Can you replace the data with some fake numbers/names?

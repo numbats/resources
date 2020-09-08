@@ -1,0 +1,38 @@
+# Learning more
+
+R is a big world that attracts people from all sorts of different disciplines.
+
+Below is a list of free online resources and textbooks for learning about R, and R's application in other areas.
+
+## Statistics / Data Science / Forecasting
+
+- [R for Data Science](https://r4ds.had.co.nz/)
+  - From wrangling data to visualisation, wrangling dates and strings, and writing. Written by Garrett Grolemund and Hadley Wickham.
+- [Forecasting Principles and Practice](https://otexts.com/fpp3/)
+  - Forecasting using R, written by Rob Hyndman and George Athanasopolous. From the philosophy of forecasting, to time series graphics, methods on ARIMA, calculating features, and time series decomposition.
+- [Modern Dive: Statistical inference vis data science](https://moderndive.com/)
+  - Written by Chester Ismay and Albert Kim, covers data wrangling, regression, bootstrapping, and inference, using the [infer package](https://tidymodels.github.io/infer/)
+- [Introduction to Statistical Learning](http://faculty.marshall.usc.edu/gareth-james/ISL/)
+  - Free PDF to download. Excellent introduction into concepts on linear regression, classification, cross validation, decision trees, and more.
+  
+## R Programming
+
+- [Advanced R](http://adv-r.had.co.nz/)
+  - Covers deeper details on how R works
+- [R Packages](https://r-pkgs.org/)
+  - This book tells you how to write an R package, from the mechanics of getting started, _when_ and _why_ to write and R package, and _how_ to do it well. Written by Hadley Wickham and Jenny Bryan.
+- [Efficient R Programming](https://csgillespie.github.io/efficientR/). 
+  - Written by Colin Gillespie and Robin Lovelace, this looks at using R from a purely _efficient_ perspective. So, how to install and update R with the least fuss for the most gain, how to use R so it is fast, how to optimise your code efficiently, as well as topics like parallel computing and how to collaborate with others.
+
+## Other resources for learning more about R
+
+- [Big Book of R](https://www.bigbookofr.com/) by Oscar Baruffa, "the only [R] bookmark you'll need in the future". Contains many similar topics to this resource book, but with a very wide scope.
+- [STAT 545](https://stat545.com/) - Data wrangling, exploration, and analysis with R by Jenny Bryan and the STAT 545 TAs. This book came from the STAT 545 book delivered at UBC, it covers topics from installing R to version control, writing, data manipulation, dates, joins, writing functions, visualisation, package writing, automation, web scraping, and using shiny.
+
+## Keeping up with R
+
+- [Read R-Weekly](https://rweekly.org/)
+- [Read R Bloggers](https://www.r-bloggers.com/)
+- [Maëlle Salmon's approach to keeping up with R](https://masalmon.eu/2019/01/25/uptodate/)
+- [Nick Tierney's approach to keeping up with R](https://www.njtierney.com/post/2020/05/28/keeping-up/)
+- Explore the [#rstats](https://twitter.com/search?q=%23rstats&src=tyah) hashtag on twitter. The R community on twitter is both excellent and friendly.
