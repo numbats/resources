@@ -8,6 +8,6 @@ A [reproducible example](https://reprex.tidyverse.org/) helps you recreate a pro
 It takes a bit of practice to create reproducible examples, I find the following advice useful:
 
 1. Make the problem as small as you can. 
-  - Is the data 100 rows long? Does it need to be? Can you make it 3 rows long?
+    - Is the data 100 rows long? Does it need to be? Can you make it 3 rows long?
 2. Make the data transportable. 
-  - Is your data sensitive? Can you replace the data with some fake numbers/names?
+    - Is your data sensitive? Can you replace the data with some fake numbers/names?

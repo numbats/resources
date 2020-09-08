@@ -1,8 +1,8 @@
 book_filename: "Resources"
-delete_merged_file: true
 language:
   ui:
-    chapter_name: "Chapter "
+    chapter_name: ""
+delete_merged_file: true
 rmd_files: [ "index.Rmd",
              "install.Rmd",
              "troubleshoot.Rmd",
@@ -18,6 +18,5 @@ rmd_files: [ "index.Rmd",
              "tidying-data.Rmd",
              "slides.Rmd",
              "flexdashboard.Rmd",
-             "learn-more.Rmd",
-             "references.Rmd",
+             "learn-more.Rmd"
             ]

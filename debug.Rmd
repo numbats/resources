@@ -1,15 +1,26 @@
 # Debugging in R
 
--   <https://adv-r.hadley.nz/debugging.html>
+When you are working with functions that you have created yourself, you might encounter an error coming from inside the function. Identifying what the problem (or "bug") is, can be hard, as you need to "step inside" the function.
 
--   <https://jozef.io/r916-exploring-r-code-interactively/>
+You can step inside a function by running `debugonce("function_name")`, in the console. This will allow you to step into the function ("function_name") and explore the code, line by line, as if you were running an R script interactively. As the name suggests, `debugonce` will allow you to "debug" exactly "once". You can also run, `debug("function_name")`, but you will need to run `undebug("function_name")` afterwards to turn it off again.
 
--   <https://rstudio-education.github.io/hopr/debug.html>
+Another approach is to place `browser` inside the function, like so:
 
--   Using {debugonce}
-    - An approach for using {recover}, to help track down errors across multiple functions:
-    - <https://www.youtube.com/watch?v=M5n_2jmdJ_8>
+```r
+my_function(x){
+  browser()
+  x + y
+}
+```
 
--   RStudio IDE break-points to track down errors in code, particularly \> if you have multiple functions
+This will allow you to step into the function when `my_function` is called. Make sure to remember to delete `browser()` after you are done!
 
-    -   https://rstudio-education.github.io/hopr/debug.html\#break-points
+This is a very brief description of debugging, to read more on this, see the following resources:
+
+- https://adv-r.hadley.nz/debugging.html
+- https://jozef.io/r916-exploring-r-code-interactively/
+- https://rstudio-education.github.io/hopr/debug.html
+- RStudio IDE break-points to track down errors in code, particularly \> if you have multiple functions: https://rstudio-education.github.io/hopr/debug.html\#break-points
+- [A video by Miles McBain](<https://www.youtube.com/watch?v=M5n_2jmdJ_8) covering how to approach errors using {recover}, to help track down errors across multiple functions.
+
+    

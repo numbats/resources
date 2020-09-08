@@ -1,6 +1,6 @@
 # Troubleshooting
 
-To learn R effectively, you need to learn how to get unstuck with R. Remember that everyone, event the experts in R, still get stuck and stumped. I've been programming with R almost every day for 7 years and I still come across issues I can't solve. Sometimes they're complex, but more often than not, they are simple issues to do with typos, or me not using something correctly. As you get more confidence with using R, you will become faster at becoming unstuck.
+To learn R effectively, you need to learn how to get unstuck with R. Remember that everyone, even the experienced R users, still get stuck and stumped. I've been programming with R for over 7 years and I regularly come across issues I can't solve. Sometimes they're complex, but more often than not, they are simple issues to do with typos, or me not using something correctly. As you get more confidence with using R, you will become faster at becoming unstuck.
 
 ## There's a problem with my R code
 
@@ -8,7 +8,7 @@ This post, [how to get unstuck with R](https://stat545.com/help-general.html), t
 
 For other problems in R, try following this process:
 
-The first wave:
+### Phase 1: Typos + Spelling
 
 - Check for typos. Do you have a spelling mistake?
 - Are you missing an opening or closing bracket? (remember the three types of bracket `()`, `[]`, `{}`).
@@ -17,28 +17,28 @@ The first wave:
 - Did you leave a trailing `%>%` or `+` at the end of a line of code?
 - Have you checked for typos again? 
 - Check for typos one more time.
+- Restart R
 
 Repeat this process until you are sure these aren't the issue. I have, on several occasions, spent an entire day chasing an error, optimising my R code, doing a lot of work really, and the main issue was a missing comma.
 
-The second wave:
+### Phase Two: Google is your friend and so is R
 
 - Copy and paste the error message into google. See what comes up.
 - If that doens't work, try removing extra detail that might be project specific
-  - E.g., try: ... not: ...
 - You can also try  [RSeek](https://rseek.org/), basically a google search that filters by R related content. 
 - If it is related to a specific function, check that I'm using it correctly by reading the helpfile.
   - Write `?FUNCTION` into the console, and scroll through to the bottom to look at the examples. Check if you are using the function the right way. Then, read through the helpfile to check the inputs are right. For example, you might be giving a function the wrong input.
     - e.g., `mean(1,2,3)` vs `mean(c(1,2,3))` vs `mean(c("1", "2", "3"))`. The second one is the correct one, since `mean` takes a vector as input.
 
-The third wave:
+### Phase Three: Ask google again
 
 - Ask google for help again, but this time try to ask about the problem you are solving. 
 - "The google formula": "how to" (your problem/question) "rstats"
   - Examples: 
-    - - You are trying to calculate the mean in R with `mean(100, 102, 103)`, but your answer doens't make sense. You can google "How to calculate the mean in rstats"
+    - You are trying to calculate the mean in R with `mean(100, 102, 103)`, but your answer doens't make sense. You can google "How to calculate the mean in rstats"
     - `lm(Ozone ~ Solar.R)` returns: `Error in eval(predvars, data, env) : object 'Ozone' not found`. In response, google, "Using lm for linear model rstats" and look at the examples they use.
 
-The fourth wave:
+### Phase Four: Rubber Duck
 
 - Try explaining the code to yourself. This is sometimes called "rubber duck debugging". This is where you place a rubber duck/inanimate object on your computer and explain, carefully, what you are doing. 
 - Try explaining the code to a colleague. Like a rubber duck, but they can talk back.
@@ -55,10 +55,8 @@ If you're still a bit stuck after trying the process above, that's OK! I recomme
 
 ## Package install / library errors
 
-- This [blog post](https://www.njtierney.com/post/2020/05/29/there-is-no-pkg/) helps address one of the variants of this error:
+Sometimes there are errors that appear when you install packages or load them with `library`. This [blog post](https://www.njtierney.com/post/2020/05/29/there-is-no-pkg/) helps address one of the variants of this error:
 
   - `Error in loadNamespace(name) : there is no package called 'here'`
   - `Error in library(here) : there is no package called 'here'`
   - `Warning in install.packages : package ‘emo’ is not available (for R version 3.6.2)`
-
-

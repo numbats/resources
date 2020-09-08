@@ -1,6 +1,6 @@
 # git and version control
 
-If you write code or plain text (LaTeX, RMarkdown, Markdown, R, c++ or even .txt), you should really consider using git to help manage your workflow. It's like Dropbox on steriod.
+If you write code or plain text (LaTeX, RMarkdown, Markdown, R, c++ or even .txt), you should really consider using git to help manage your workflow. It's like a supercharged Dropbox.
 
 To get started I would recommend 2 things to get started:
 
@@ -10,7 +10,7 @@ To get started I would recommend 2 things to get started:
 Some other great resources include:
 
 - Miles McBain's [git for scientists](https://milesmcbain.github.io/git_4_sci/)
-- [these slides](https://slides.com/michaelfreeman/git-collaboration#/1)
+- [These slides by Michael Freeman](https://slides.com/michaelfreeman/git-collaboration#/1)
 - [git - the simple guide](https://rogerdudler.github.io/git-guide/)
 - [oh shit, git!](https://ohshitgit.com/)
 

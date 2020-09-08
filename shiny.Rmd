@@ -4,18 +4,18 @@ Shiny is a really awesome way to enhance your R script, package, or method. Shin
 
 ## Introductory
 
--  https://mastering-shiny.org/basic-app.html
+- https://mastering-shiny.org/basic-app.html
   - This section gets you started with the basics of a shiny app
   - This from an in-progress book <https://mastering-shiny.org/> by Hadley Wickham, which goes from first steps, to handling issues in putting apps in production. The book is still being written, but is due to be finished by the end of 2020.
 
--  https://shiny.rstudio.com/tutorial/
-    - Provides a 2 hour video tutorial, with the links below being timestamped sections of the video where it discusses specific concepts
-    - Also links to other good tutorials
+- https://shiny.rstudio.com/tutorial/
+  - Provides a 2 hour video tutorial, with the links below being timestamped sections of the video where it discusses specific concepts
+  - Also links to other good tutorials
 
 - Publishing / deploying shiny apps
   - https://shiny.rstudio.com/deploy/
 
--  Debugging shiny
+- Debugging shiny
   - <https://rstudio.com/resources/shiny-dev-con/debugging-techniques/>
   - <https://mastering-shiny.org/action-workflow.html>
   - <https://shiny.rstudio.com/articles/debugging.html>
