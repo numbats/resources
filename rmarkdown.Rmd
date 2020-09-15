@@ -1,0 +1,205 @@
+# Rmarkdown
+
+<iframe src="https://player.vimeo.com/video/178485416?color=428bca" width="640" height="400" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<p><a href="https://vimeo.com/178485416">What is R Markdown?</a> from <a href="https://vimeo.com/rstudioinc">RStudio, Inc.</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+
+## What is Rmarkdown?
+
+(Note: content from this section was adapted from [rm4sci](https://rmd4sci.njtierney.com/why-rmarkdown.html),with permission from Nick Tierney)
+
+`rmarkdown` provides an environment where you can write your complete analysis, and marries your text, and code together into a rich document. You write your code as **code chunks**, put your text around that, and then hey presto, you have a document you can reproduce.
+
+For example, look at the following report:
+
+```{r example-report, out.width = "80%", fig.align = "center", echo = FALSE}
+knitr::include_graphics("figs/rmd-report-example.png")
+# image generated with
+# webshot::webshot("file:///Users/ntie0001/github/njtierney/world-health-demo/book-demos/book-demo.html",
+#         here::here("figs", "rmd-report-example.png"))
+
+```
+
+How did we generate it?
+
+```{r fit-coef-ugle-hack, include=FALSE}
+fit_coef = '`r fit_coef[1]`'  # an ugly hack; don't look at me
+```
+
+```yaml
+---
+title: "Exploring gapminder"
+author: "Nicholas Tierney"
+output: html_document
+---
+```
+
+````
+
+`r ''````{r library, message = FALSE}
+library(tidyverse)
+library(broom)
+```
+
+`r ''````{r data-read-in, message = FALSE}
+data <- read_csv(here::here("data/oz_gapminder.csv"))
+```
+
+# Introduction
+
+let's look at the lifespan
+
+`r ''````{r hist-life-exp}
+hist(data$lifeExp)
+```
+
+Let's fit a simple linear model of the effect of year on life expectancy
+
+`r ''````{r example-lm}
+fit <- lm(lifeExp ~ year, data = data)
+fit
+```
+
+And let's look at the coefficient table:
+
+`r ''````{r coef-table}
+library(broom)
+fit_coef <- tidy(fit)
+knitr::kable(fit_coef,
+             caption = "A table of the coefficients")
+```
+
+The effect of year on life expectancy is `r "\u0060r fit_coef$estimate[2]\u0060"`.
+````
+
+We _render_ this code and it creates this report!
+
+It has a plot, it has a table, we even refer to some of the values in the text - the last line of the report looks at the effect of year.
+
+But what if the data changes? At the moment we are looking at only Australia - say we get the full dataset, what happens then?
+
+Say you'd created your report by hand in microsoft word, and with a graphical user interface software.
+
+You would need to:
+
+1. Go back to the GUI, re run the analysis
+1. Import the results into Excel
+1. Create your graph
+1. Copy the graph into Word
+1. Copy the results of the coefficients into the text
+1. Copy the results of the coefficient table into the text.
+
+This is painful.
+
+And what if someone wants to know _exactly_ how you did your analysis?
+
+This process isn't exactly sharable.
+
+But if you did it in R Markdown?
+
+Just update the data, and render the document again, and get an updated document:
+
+```{r img-show-all-data, echo = FALSE, out.width = "80%", fig.align = "center"}
+
+knitr::include_graphics(here::here("figs",
+"rmd-report-example-all-data.png"))
+# generated with this code
+# webshot::webshot("file:///Users/ntie0001/github/njtierney/world-health-demo/book-demos/book-demo.html",
+#      here::here("figs", "rmd-report-example-all-data.png"))
+
+```
+
+The results are different!
+
+And we just pointed it to some different data. Then re-rendered it.
+
+That's it.
+
+
+## Markdown
+
+In 2004, [John Gruber](https://en.wikipedia.org/wiki/John_Gruber), of [daring fireball](https://daringfireball.net/) created [Markdown](https://en.wikipedia.org/wiki/Markdown), a simple way to create text that rendered into an HTML webpage.
+
+### A brief example of markdown
+
+For example,
+
+```markdown
+- bullet list
+- bullet list
+- bullet list
+
+1. numbered list
+2. numbered list
+3. numbered list
+
+__bold__, **bold**, _italic_, *italic*
+
+> quote of something profound
+```
+
+````
+```r
+# computer code goes in three back ticks
+1 + 1
+2 + 2
+```
+````
+
+Would be converted to:
+
+
+- bullet list
+- bullet list
+- bullet list
+
+1. numbered list
+2. numbered list
+3. numbered list
+
+__bold__, **bold**, _italic_, *italic*
+
+> quote of something profound
+
+```{r example-calculator}
+# computer code goes in three back ticks
+1 + 1
+2 + 2
+```
+
+With very little marking up, we can create rich text, that **actually resembles** the text that we want to see.
+
+Some other nice features of Markdown include:
+
+|  feature        | markdown      | rendered     |
+|----------------:|--------------:|:-------------|
+|  superscript    |  `2^nd^`      | 2^nd^        |
+|  subscript      |  `CO~2~`      | CO~2~        |
+|  strikethrough  |  `~~mistake~~`| ~~mistake~~  |
+| links           | `[text](http:://www.example.com/your-link-goes-here)`| [text](http:://www.example.com/your-link-goes-here) |
+| images          | `![alternative text](link)` | `![alternative text](link)`|
+
+
+## Where to learn about Rmarkdown
+
+- [Rmarkdown for scientists](https://rmd4sci.njtierney.com)
+  - Provides a guide for rmarkdown targeted at scientists who need to do scientific writing and computing. It covers motivation for using rmarkdown, installation issues, using RStudio, file paths, keyboard shortcuts, inserting figures and tables and how to use captions, references, and other output styles. It is designed with a 3 hour course in mind.
+
+- [Learning markdown](https://www.markdowntutorial.com/)
+- [R Markdown Cheatsheet](https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+
+- [Communicating with Data via R Markdown by Emi Tanaka](https://rmd-combine-2019.netlify.app/)
+  - Content from Emi's COMBINE workshop in 2019 (materials on [github here](https://github.com/emitanaka/combine2019)).
+
+- [Communicating with R Markdown workshop by Alison Hill](https://github.com/rstudio-education/communicate-rmd-workshop)
+
+- [R Markdown: The Definitive Guide](https://alison.rbind.io/post/2020-05-28-how-i-teach-r-markdown/)
+  - The full reference manual to rmarkdown 
+
+- [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
+  - A more targeted guide to "how to do X in rmarkdown"
+
+- [RStudio's introduction to rmarkdown](https://rmarkdown.rstudio.com/lesson-1.html)
+- [Gallery of rmarkdown documents](https://rmarkdown.rstudio.com/gallery.html)
+
+- [How Alison Hill Teaches Rmarkdown](https://alison.rbind.io/post/2020-05-28-how-i-teach-r-markdown/)
+

@@ -11,3 +11,9 @@ It takes a bit of practice to create reproducible examples, I find the following
     - Is the data 100 rows long? Does it need to be? Can you make it 3 rows long?
 2. Make the data transportable. 
     - Is your data sensitive? Can you replace the data with some fake numbers/names?
+
+## Some approaches to avoid
+
+- Taking a screenshot. 
+- Just posting the error message.
+- Not sharing the data.
