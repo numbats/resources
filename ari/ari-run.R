@@ -1,3 +1,5 @@
+# this file contains the API tokens for AWS, but is not committed to the repo
+# for security reasons
 source("ari/ari-secret.R")
 
 # Set up your keys and your region here.
@@ -15,10 +17,6 @@ ari_narrate(script = "ari/ari-example.Rmd",
             capture_method = "iterative")
 
 # Perhaps add a function to help check if there are comments for each slide
-
-path <- "ari/ari-example.Rmd"
-xfun::with_ext(path, "html")
-
 
 ari_narrate_auto <- function(slides, render = TRUE, voice = "Nicole"){
   
