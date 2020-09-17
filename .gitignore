@@ -4,5 +4,8 @@
 .Ruserdata
 .DS_Store
 *.html
+*.mp4
+*.srt
+ari/ari-secret.R
 _book
 _bookdown_files

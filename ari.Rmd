@@ -1,0 +1,68 @@
+# ari
+
+Ari is an R package that helps you create slides with audio
+
+**A**utomated
+**R**
+**I**nstructor
+
+Here is an example by Sean Kross:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dcIUu4GCOKU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Getting setup with ari
+
+This is a guide based on [the ari README](https://github.com/jhudsl/ari).
+
+To create an ari video, you need to
+
+1. Provide an HTML slide deck such as ioslides of xaringan
+1. Provide some set of subtitles/script for each slide
+1. set up an account with Amazon Web Services for AWS Polly (pretty much free)
+  - see [this guide by Sean Kross](http://seankross.com/2017/05/02/Access-Amazon-Web-Services-in-R.html), but ensure to select Polly related webservices instead of S3 bucket ones as provided in the post.
+1. Share your API key with polly (and be sure to NEVER EVER commit this to github)
+1. Have ffmpeg installed
+
+You can create a video with `ari_narrate()`.
+
+For the following directory structure:
+
+```
+ari/
+   - ari-example.Rmd
+   - ari-example.html
+```
+
+You would call the following:
+
+```r
+ari_narrate(script = "ari/ari-example.Rmd",
+            slides = "ari/ari-example.html",
+            output = "ari/ari-video-nicole.mp4",
+            voice = "Nicole",
+            # voice = "Russell",
+            subtitles = TRUE,
+            # this needs to be "iterative" or it won't advance the slides
+            # also each slide needs to have a script or the video will be out
+            # of sync. Including the title slide!
+            capture_method = "iterative")
+```
+
+This would then create:
+
+```
+ari/
+   - ari-example.Rmd
+   - ari-example.html
+   - ari-video-nicole.mp4
+   - ari-video-nicole.srt
+```
+
+You can see an example of the ari slides in the `ari` folder of this GitHub directory.
+
+## Troubleshooting
+
+- Slide stuck on first one
+  - Ensure `capture_method = "iterative"`
+- Slides skip / don't align with script
+  - Ensure all slides have a script file, and only one script file

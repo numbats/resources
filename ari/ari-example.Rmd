@@ -1,0 +1,137 @@
+---
+title: "Ari example"
+author: 
+  - "Nicholas Tierney"
+date: '`r Sys.Date()`'
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+# library(xaringanthemer)
+# style_duo_accent(
+#   primary_color = "#1381B0",
+#   secondary_color = "#FF961C",
+#   inverse_header_color = "#FFFFFF"
+# )
+```
+
+<!-- This is the title slide -->
+
+## Using ari
+
+<!-- 
+G'day!!! This is an example usage of generating content for ari.
+-->
+
+## Create a HTML slide deck
+
+For example, with the **xaringan** package.
+
+```{r eval=FALSE, tidy=FALSE}
+install.packages("xaringan")
+```
+
+Use [RStudio IDE](https://www.rstudio.com/products/rstudio/):
+
+- Create a new R Markdown document from the menu `File -> New File -> R Markdown -> From Template -> Ninja Presentation`
+
+<!-- 
+Create a slide deck 
+-->
+
+## Create a HTML slide deck
+
+- Every slide should have HTML comments for each slide (although you can also have a separate script file with the same headings)
+
+```
+
+# Here is a slide title
+
+- And here is some slide text
+
+`<!--`
+And here is the HTML comment that forms your script
+`-->`
+
+```
+
+- Ensure Rmd is knitted into HTML - Click the `Knit` button to compile it;
+
+<!-- And here is the HTML comment that forms your script -->
+
+## Create a HTML slide deck
+
+- Install the `aws.polly` package from CRAN
+
+```r
+install.packages("aws.polly")
+```
+
+You then need to set up an account with AWS if you haven't already
+
+Sean Kross has a great [write up of doing that](http://seankross.com/2017/05/02/Access-Amazon-Web-Services-in-R.html).
+
+  - that example is realted to S3 however, what you want to do is search for
+  "polly" and then
+
+<!-- 
+Install the AWS polly package from CRAN 
+-->
+
+## Math Expressions
+
+A Linear model is given by 
+
+$$\hat{Y}=\beta_0 + \beta_1 x_1 + \epsilon$$
+
+<!-- A linear model is given by an intercept, beta nought, plus some slope, beta 1 ex 1, plus some error term, epsilon. -->
+
+## R Code
+
+```{r comment='#'}
+# a boring regression
+fit = lm(dist ~ 1 + speed, data = cars)
+coef(summary(fit))
+```
+
+<!-- Here is an example of some R code -->
+
+## R Plots
+
+```{r cars, fig.height=4, dev='svg'}
+par(mar = c(4, 4, 1, .1))
+plot(cars, pch = 19, col = 'darkgray', las = 1)
+abline(fit, lwd = 2)
+```
+
+<!-- Here is an example of an R plot -->
+
+## Tables
+
+If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,
+
+```{r}
+knitr::kable(head(iris), format = 'html')
+```
+
+<!-- Here is an example of a table -->
+
+## Thanks!
+
+Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
+
+The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](http://yihui.name/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
+
+<!-- 
+Thanks for listening! 
+
+The slides were created with the R package, xaringan, 
+
+And my narration was made possible with the "ari" package, from Johns Hopkins Data Science Lab.
+
+Special thanks to Sean Kross, and John Muschelli
+-->
