@@ -25,16 +25,10 @@
     },
     "ari": {
       "Package": "ari",
-      "Version": "0.4.0",
-      "Source": "GitHub",
-      "Remotes": "cloudyr/aws.signature, cloudyr/aws.polly,\nmuschellij2/text2speech",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "ari",
-      "RemoteUsername": "jhudsl",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "82feaf74795b5457171e80ba5994bc9e002c25c6",
-      "Hash": "97b95bfb214c1fb9e9d4bd0e2554349f"
+      "Version": "0.3.5",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "21592303d0b7437bae8dc8205744885a"
     },
     "askpass": {
       "Package": "askpass",
@@ -52,10 +46,10 @@
     },
     "aws.polly": {
       "Package": "aws.polly",
-      "Version": "0.1.5.9000",
+      "Version": "0.1.5",
       "Source": "Repository",
-      "Repository": null,
-      "Hash": "7c7d322b7321d417f56c81b02b6d264e"
+      "Repository": "CRAN",
+      "Hash": "d6a90d40e4485d0e4d25356bb400d95b"
     },
     "aws.signature": {
       "Package": "aws.signature",
@@ -80,15 +74,10 @@
     },
     "bookdown": {
       "Package": "bookdown",
-      "Version": "0.20.3",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "bookdown",
-      "RemoteUsername": "rstudio",
-      "RemoteRef": "master",
-      "RemoteSha": "9eb20a83fe303d643cdc1ffca21c2b228be9406a",
-      "Hash": "3564c698fc02ab5bcf7a3daedf9c7ba8"
+      "Version": "0.20",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "31ed5641f4a91cf113de490e0bb006b8"
     },
     "callr": {
       "Package": "callr",
@@ -239,15 +228,10 @@
     },
     "knitr": {
       "Package": "knitr",
-      "Version": "1.29.5",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "knitr",
-      "RemoteUsername": "yihui",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "7d2dd40bfaad6df54cd451d6553c42f32a34d56f",
-      "Hash": "0acfb87836eb4a64ce72b9cadd79eef2"
+      "Version": "1.29",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "e5f4c41c17df8cdf7b0df12117c0d99a"
     },
     "lifecycle": {
       "Package": "lifecycle",
@@ -258,15 +242,10 @@
     },
     "magrittr": {
       "Package": "magrittr",
-      "Version": "1.5.0.9000",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "magrittr",
-      "RemoteUsername": "tidyverse",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "15f6f070c9004d1661d00fab1ae3eec656e7f319",
-      "Hash": "f86285a3f0aa25ef00b4629a46e8a9e0"
+      "Version": "1.5",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "1bb58822a20301cee84a41678e25d9b7"
     },
     "markdown": {
       "Package": "markdown",
@@ -368,15 +347,10 @@
     },
     "rmarkdown": {
       "Package": "rmarkdown",
-      "Version": "2.3.5",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "rmarkdown",
-      "RemoteUsername": "rstudio",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "949c7e3cf5901000ca60f89ffce69550c1f814f4",
-      "Hash": "d6a8c2266c63833c1c128ab269aa5236"
+      "Version": "2.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "202260e1b2c410edc086d5b8f1ed946e"
     },
     "rprojroot": {
       "Package": "rprojroot",
@@ -430,14 +404,9 @@
     "text2speech": {
       "Package": "text2speech",
       "Version": "0.2.13",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "text2speech",
-      "RemoteUsername": "muschellij2",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "f46274ef70950e295ddbeb1e7a34ab2ee0afcfa8",
-      "Hash": "d49fc2b9c7abbd81070003f92e0d98d4"
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "d66bcf77ad02dea143358637c0ddec59"
     },
     "tibble": {
       "Package": "tibble",
