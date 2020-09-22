@@ -1,0 +1,88 @@
+# Using .Rprofile and .Renviron
+
+Your .Rprofile and .Renviron are where you can put things that help with individual setup, but are not things that are related to reproducibility.
+
+For example, this can be custom start up messages, special API keys you need to use some external service, as well as packages that you might use interactively.
+
+## .Rprofile
+
+Your .Rprofile is like ...
+
+## .Renviron
+
+Your .Renviron is like ...
+
+These can be useful to share information like API keys, or set other default values that you want to personalise for your R session. These should fall into the category of things regarding
+
+### Example: Usage with AWS
+
+To share use the Amazon Web Service, "polly", from within R, you need to set some environment variables.
+
+What even are "Environment Variables"? They are named values that tell some external application some information. In this case, we are telling AWS our KEY ID and ACCESS KEY, and it uses that information to verify who we are. You can think of it like a username and password. They often look something like this:
+
+```
+AWS_ACCESS_KEY_ID=HFepbTd3gnHeL5w3IJFZ
+SOME_OTHER_API_KEY=VpewOKpQ5Y4ir48R78n2
+YET_ANOTHER_API=olAs4e1OX5qP2cD4Kp4U
+```
+
+This key here refers to an AWS Access Key ID.
+
+This sort of format might sometimes referred to as `key-value` pairs, the thing on the left is the key, and the thing on the right is that key's value. E.g., `name: Nick` - the key is "name", and it's value is "Nick").
+
+You can read more on Environment Variables at this [medium post](https://medium.com/chingu/an-introduction-to-environment-variables-and-how-to-use-them-f602f66d15fa) and on [wikipedia (yes, they are that important that they get their own wiki page!)](https://en.wikipedia.org/wiki/Environment_variable). You can also learn more about how R uses this (and what R does when it boots up) by looking at the helpfile for `Startup` - `?Startup`.
+
+#### Approach one, use `Sys.setenv`
+
+The first is to set the environment variable each time you use `ari`. To do this, you use `Sys.setenv`, like so  each time you use `ari`:
+
+
+```r
+# First set up your AWS keys
+# (note this is fake API data)
+Sys.setenv("AWS_ACCESS_KEY_ID" = "EA6TDV7ASDE9TL2WI6RJ",
+           "AWS_SECRET_ACCESS_KEY" = "OSnwITbMzcAwvHfYDEmk10khb3g82j04Wj8Va4AA",
+           "AWS_DEFAULT_REGION" = "us-east-2")
+           
+# Create a video from a Markdown file and slides
+ari_narrate(
+  ari_example("ari_intro_script.md"),
+  ari_example("ari_intro.html"),
+  voice = "Joey"
+  )
+```
+
+Using `Sys.setenv` will work for each R session. So, if you restart R, you will need to run the `Sys.setenv` code each time. I prefer to avoid that, since it means I need to record that information somewhere on my computer, which creates extra work each time. To avoid that, I use `.Renviron` approach described below.
+
+#### Approach two: use `.Renviron`
+
+Another approach is to save these in your personal R evironment - your `.Renviron` file. This is a special file that you can store these environmental keys. The way this works is that when R starts up, it searches for a `.Renviron` file (located at `fs::path_home()`, or within the current folder) and then loads the environment variables there. 
+
+This all felt a bit mysterious to me the first couple of times I used it - but this process is made simpler with `usethis::edit_r_environ()`
+
+This opens up the `.Renviron` file, and tells you to restart R for changes to take effect:
+
+```
+> usethis::edit_r_environ()
+● Modify '/Users/ntie0001/.Renviron'
+● Restart R for changes to take effect
+```
+
+So you would edit the file and place something like the following in it:
+
+```
+AWS_ACCESS_KEY_ID=eim417O8HbM0A21g4uv8
+AWS_SECRET_ACCESS_KEY=svIr03835X5tdndEw7c5CRaAOYbSj04rA2p302il
+AWS_DEFAULT_REGION=ap-southeast-2
+```
+
+Then, follow the instructions from usethis, and
+
+1. Close the opened ".Renviron" file.
+2. Restart R
+
+#### A cautionary note on sharing keys.
+
+Remember to NEVER EVER commit files containing keys to github. If you notice that you have, you should immediately delete these keys from AWS (or wherever the keys are from), which prevents them from further use. 
+
+This is important because if someone gets a hold of these keys, the can potentially rack up many hours of time on AWS servers, which in turn could cost you serious `$$$`. There are bots that trawl through github looking for tokens like this, so it is not so much a case of if this will happen, but **when**. 
