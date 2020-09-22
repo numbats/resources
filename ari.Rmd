@@ -18,7 +18,7 @@ This is a guide based on [the ari README](https://github.com/jhudsl/ari).
 
 In order to create an ari video, you need to:
 
-1. Provide an HTML slide deck such as [`ioslides`]() or [`xaringan`]()
+1. Provide an HTML slide deck such as [`ioslides`](https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html) or [`xaringan`](https://bookdown.org/yihui/rmarkdown/xaringan.html)
 1. Provide some set of subtitles/script for each slide 
   - Either in a separate file, or in each slide
 1. Set up an account with Amazon Web Services for AWS Polly (free, as I understand it)
@@ -31,11 +31,15 @@ In order to create an ari video, you need to:
 
 You need some kind of HTML slide deck. 
 
-One of the easiest ways to create them is to use Rstudio's guided process. For more information, see ...
+One of the easiest ways to create them is to use Rstudio's guided process:
 
-- [`ioslides`]() are a ... . 
+File > New File > R Markdown > from Template > pick a Xaringan slide deck
 
-- [`xaringan`]()  
+Or
+
+File > New File > R Markdown > Presentation > choose ioslides.
+
+For more information see the [chapter on slide decks in R](https://github.com/numbats/resources/blob/master/slides.Rmd).
 
 ### Provide some set of subtitles/script for each slide 
 
@@ -43,15 +47,20 @@ Either in a separate file, or in each slide as an HTML comment.
 
 If you are going the separate file route:
 
+- A markdown file with each slide separated by a second level header (`##`) and then your script text. See `file.show(ari_example("ari_intro_script.md"))` for an example.
+- An HTML file of slides `browseURL(ari_example("ari_intro.html"))`
+
 If you are going the slides as HTML comment route:
 
-
+- Have an Rmarkdown file with HTML comments (`<!-- this is an HTML comment -->`) that denote the script. See `file.show(ari_example("ari_comments.Rmd"))` for an example.
 
 ### Set up an account with Amazon Web Services for AWS Polly 
 
 This is free, as far as I understand it. To get setup, follow [this guide by Sean Kross](http://seankross.com/2017/05/02/Access-Amazon-Web-Services-in-R.html). But ensure to select Polly related webservices instead of S3 bucket ones as provided in the post.
 
-**image of this**
+```{r aws-polly}
+knitr::include_graphics("figs/aws-screenshot.png")
+```
 
 ### Share your API key with polly 
 
@@ -115,7 +124,10 @@ AWS_SECRET_ACCESS_KEY=svIr03835X5tdndEw7c5CRaAOYbSj04rA2p302il
 AWS_DEFAULT_REGION=ap-southeast-2
 ```
 
-Then close the opened ".Renviron" file.
+Then, follow the instructions from usethis, and
+
+1. Close the opened ".Renviron" file.
+2. Restart R
 
 #### A cautionary note on sharing keys.
 
@@ -174,9 +186,55 @@ ari/
 
 You can see an example of the ari slides in "ari-example.Rmd"  and "ari-run.R" https://github.com/numbats/resources/tree/master/ari of this GitHub directory.
 
+## Helper function for `ari`
+
+Below is a helper function for `ari` if you just want to provide a single Rmarkdown file and not specify the HTML as well:
+
+
+```{r}
+ari_narrate_auto <- function(slides, render = TRUE, voice = "Nicole"){
+  
+  if (render) {
+    rmarkdown::render(input = slides)
+  }
+  
+  ari_narrate(script = slides,
+              slides = xfun::with_ext(slides, "html"),
+              output =xfun::with_ext(slides, "mp4"),
+              voice = voice,
+              subtitles = TRUE,
+              # this needs to be "iterative" or it won't advance the slides
+              # also each slide needs to have a script or the video will be out
+              # of sync. Including the title slide!
+              capture_method = "iterative")
+}
+```
+
+
+Example usage - point it at an Rmd file:
+
+```{r ari-example-auto, eval = FALSE}
+ari_narrate_auto("ari/ari-example.Rmd") 
+
+```
+
 ## Troubleshooting `ari`.
 
-- Slide stuck on first one
-  - Ensure `capture_method = "iterative"`
-- Slides skip / don't align with script
+Slide stuck on first one
+ - Ensure `capture_method = "iterative"`
+ 
+Slides skip / don't align with script
   - Ensure all slides have a script file, and only one script file
+
+Warning message like:
+
+```
+Warning messages:
+1: In pollyHTTP(action = "voices", verb = "GET", query = query, ...) :
+  Forbidden (HTTP 403).
+2: In structure(out[["Voices"]], NextToken = out[["NextToken"]]) :
+  Calling 'structure(NULL, *)' is deprecated, as NULL cannot have attributes.
+  Consider 'structure(list(), *)' instead.
+```
+
+ - Check that your AWS keys are still valid
