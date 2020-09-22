@@ -1,64 +1,73 @@
 # Using .Rprofile and .Renviron
 
-Your .Rprofile and .Renviron are where you can put things that help with individual setup, but are not things that are related to reproducibility.
+Your `.Rprofile` and `.Renviron` are special files that R looks for when it opens. You can put certain bits of code in there to customise your R experience - this can be really useful for some things, saving you time. It also comes with two warnings: 
+1. Be careful, this has the potential to make your work not reproducible if not used carefully.
+2. Never ever commit a file containing an API key.
 
-For example, this can be custom start up messages, special API keys you need to use some external service, as well as packages that you might use interactively.
+Some of the example things that editing your `.Rprofile` and `.Renviron` file can do are:
+
+- Custom start up messages or prompt for R
+- Set up API keys for things like google maps, Amazon Web Services, and GitHub keys
+- Load packages for you
+- Load details for setting up your R package details
+
+This section discusses how to use and edit `.Rprofile` and `.Renviron`, and the sort of things you can place in them.
 
 ## .Rprofile
 
-Your .Rprofile is like ...
+Your R profile file, `.Rprofile`, contains R code that runs when R starts up.
+
+If you do a lot of R package development it might be useful to have this code in your `.Rprofile`:
+
+```r
+if (interactive()) {
+  suppressMessages(require(devtools))
+}
+```
+
+**very important** - only use packages that you use interactively in this way - you almost certainly don't want packages like `tidyverse` and friends here.
+
+To edit your R profile, write `usethis::edit_r_profile()` into the console, and:
+
+1. modify your `.Rprofile` and save it (ensuring a blank line is left at the end!!!) and 
+2. Restart R for changes to take place).
+
+**Example R profiles**
+
+The R packages book provides a good setup guide for getting started ([Setup chapter](https://r-pkgs.org/setup.html#personal-startup-configuration))
+
+Some people share their R profiles online, these types of things are sometimes called, "dotfiles". For example:
+
+- [Earo Wang](https://github.com/earowang/dotfiles)
+- [Nick Tierney](https://github.com/njtierney/dotfiles)
+- [Jim Hester](https://github.com/jimhester/dotfiles)
+- [Henrik Bengtsson](https://github.com/HenrikBengtsson/dotfiles-for-R)
+
+Dotfiles are a more general concept that apply to things outside of R, so you might see some other languages there as well!
+
 
 ## .Renviron
 
-Your .Renviron is like ...
+Your R environment file, `.Renviron`, does not contain R code. It contains environment variables. What even are "Environment Variables"? They are named values that tell some external application some information. 
 
-These can be useful to share information like API keys, or set other default values that you want to personalise for your R session. These should fall into the category of things regarding
-
-### Example: Usage with AWS
-
-To share use the Amazon Web Service, "polly", from within R, you need to set some environment variables.
-
-What even are "Environment Variables"? They are named values that tell some external application some information. In this case, we are telling AWS our KEY ID and ACCESS KEY, and it uses that information to verify who we are. You can think of it like a username and password. They often look something like this:
+For example, we are telling AWS our KEY ID and ACCESS KEY, and it uses that information to verify who we are. You can think of it like a username and password. They often look something like this:
 
 ```
 AWS_ACCESS_KEY_ID=HFepbTd3gnHeL5w3IJFZ
-SOME_OTHER_API_KEY=VpewOKpQ5Y4ir48R78n2
-YET_ANOTHER_API=olAs4e1OX5qP2cD4Kp4U
+GOOGLE_MAPS_API=VpewOKpQ5Y4ir48R78n2
+ANOTHER_API=olAs4e1OX5qP2cD4Kp4U
 ```
 
-This key here refers to an AWS Access Key ID.
-
-This sort of format might sometimes referred to as `key-value` pairs, the thing on the left is the key, and the thing on the right is that key's value. E.g., `name: Nick` - the key is "name", and it's value is "Nick").
+These each refer to an AWS access key id, a google maps API key, and some other API key.  This sort of format might sometimes referred to as `key-value` pairs, the thing on the left is the key, and the thing on the right is that key's value. E.g., `name: Nick` - the key is "name", and it's value is "Nick").
 
 You can read more on Environment Variables at this [medium post](https://medium.com/chingu/an-introduction-to-environment-variables-and-how-to-use-them-f602f66d15fa) and on [wikipedia (yes, they are that important that they get their own wiki page!)](https://en.wikipedia.org/wiki/Environment_variable). You can also learn more about how R uses this (and what R does when it boots up) by looking at the helpfile for `Startup` - `?Startup`.
 
-#### Approach one, use `Sys.setenv`
 
-The first is to set the environment variable each time you use `ari`. To do this, you use `Sys.setenv`, like so  each time you use `ari`:
+### How do I use it?
 
+The `.Renviron` is a special file that you can store these environmental keys. The way this works is that when R starts up, it searches for a `.Renviron` file (located at `fs::path_home()`, or within the current folder) and then loads the environment variables there. 
 
-```r
-# First set up your AWS keys
-# (note this is fake API data)
-Sys.setenv("AWS_ACCESS_KEY_ID" = "EA6TDV7ASDE9TL2WI6RJ",
-           "AWS_SECRET_ACCESS_KEY" = "OSnwITbMzcAwvHfYDEmk10khb3g82j04Wj8Va4AA",
-           "AWS_DEFAULT_REGION" = "us-east-2")
-           
-# Create a video from a Markdown file and slides
-ari_narrate(
-  ari_example("ari_intro_script.md"),
-  ari_example("ari_intro.html"),
-  voice = "Joey"
-  )
-```
-
-Using `Sys.setenv` will work for each R session. So, if you restart R, you will need to run the `Sys.setenv` code each time. I prefer to avoid that, since it means I need to record that information somewhere on my computer, which creates extra work each time. To avoid that, I use `.Renviron` approach described below.
-
-#### Approach two: use `.Renviron`
-
-Another approach is to save these in your personal R evironment - your `.Renviron` file. This is a special file that you can store these environmental keys. The way this works is that when R starts up, it searches for a `.Renviron` file (located at `fs::path_home()`, or within the current folder) and then loads the environment variables there. 
-
-This all felt a bit mysterious to me the first couple of times I used it - but this process is made simpler with `usethis::edit_r_environ()`
+To use it, edit your `.Renviron` file with `usethis::edit_r_environ()`
 
 This opens up the `.Renviron` file, and tells you to restart R for changes to take effect:
 
@@ -76,13 +85,43 @@ AWS_SECRET_ACCESS_KEY=svIr03835X5tdndEw7c5CRaAOYbSj04rA2p302il
 AWS_DEFAULT_REGION=ap-southeast-2
 ```
 
-Then, follow the instructions from usethis, and
+Then, follow the instructions from `usethis`, and:
 
-1. Close the opened ".Renviron" file.
+1. Save the opened ".Renviron" file - ensure that there is a blank line at the end
+2. Close the ".Renviron" file.
 2. Restart R
 
-#### A cautionary note on sharing keys.
+### Some other use cases of `.Renviron`
 
-Remember to NEVER EVER commit files containing keys to github. If you notice that you have, you should immediately delete these keys from AWS (or wherever the keys are from), which prevents them from further use. 
+**Set R flags**
 
-This is important because if someone gets a hold of these keys, the can potentially rack up many hours of time on AWS servers, which in turn could cost you serious `$$$`. There are bots that trawl through github looking for tokens like this, so it is not so much a case of if this will happen, but **when**. 
+```
+_R_CHECK_LENGTH_1_LOGIC2_=verbose
+_R_CHECK_LENGTH_1_CONDITION_=true
+```
+
+These avoid potential misuse of logical vector tests (mentioned in https://github.com/MilesMcBain/dflow)
+
+**Use within a specific project**
+
+You can set up a `.env` file in a project to load environment variables - as seen in https://github.com/MilesMcBain/dflow
+
+### A cautionary note on sharing keys.
+
+Remember to NEVER EVER commit files containing keys to github. If you notice that you have, you should immediately delete these keys from wherever the keys are from to prevents them from further use. 
+
+Sometimes to get an API key you need to use a credit card - for use if you exceed some set number of computations in a time limit. This means if someone gets a hold of your API keys, it is like they get access to your username and password for something - and they might start running a lot of computations in your good name. It
+
+They can potentially rack up many hours of time on, say, AWS servers, which in turn could cost you serious `$$$`. There are bots that trawl through github looking for tokens like this, and your code will persist even if you commit over them. 
+
+So if you have accidentally commited an API key, id, or username + password, is not so much a case of **if** they will get stolen, but **when**. Consider yourself warned.
+
+## Learning more
+
+- To learn more about `.Rprofile` and `.Renviron`, look at the helpfile for `Startup` - `?Startup`.
+- [Setup recommended in R packages](https://r-pkgs.org/setup.html#personal-startup-configuration)
+- Read the usethis page
+- [Rstats What they forgot to teach you - chapter 7](https://rstats.wtf/r-startup.html)
+- [Stack overflow: difference between rprofile, renviron](https://stackoverflow.com/questions/15983803/what-is-the-difference-betwwen-rprofile-renviron-and-rprofile-site-renvir)
+- [Efficient R programming: R Startup](https://csgillespie.github.io/efficientR/set-up.html#r-startup)
+- [Managing R with .Rprofile, .Renviron, Rprofile.site, Renviron.site, rsession.conf, and repos.conf by Alex Gold](https://support.rstudio.com/hc/en-us/articles/360047157094-Managing-R-with-Rprofile-Renviron-Rprofile-site-Renviron-site-rsession-conf-and-repos-conf)

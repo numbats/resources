@@ -20,9 +20,9 @@ In order to create an ari video, you need to:
 
 1. Provide an HTML slide deck such as [`ioslides`](https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html) or [`xaringan`](https://bookdown.org/yihui/rmarkdown/xaringan.html)
 1. Provide some set of subtitles/script for each slide 
-  - Either in a separate file, or in each slide
+    - Either in a separate file, or in each slide
 1. Set up an account with Amazon Web Services for AWS Polly (free, as I understand it)
-  - see [this guide by Sean Kross](http://seankross.com/2017/05/02/Access-Amazon-Web-Services-in-R.html), but ensure to select Polly related webservices instead of S3 bucket ones as provided in the post.
+    - see [this guide by Sean Kross](http://seankross.com/2017/05/02/Access-Amazon-Web-Services-in-R.html), but ensure to select Polly related webservices instead of S3 bucket ones as provided in the post.
 1. Share your API key with polly (and be sure to NEVER EVER commit this to github)
 1. Have [ffmpeg](ffmpeg.org) installed
 
@@ -218,13 +218,15 @@ ari_narrate_auto("ari/ari-example.Rmd")
 
 ```
 
-## Troubleshooting `ari`.
+## Troubleshooting `ari`
 
-Slide stuck on first one
+Video is crated, but just shows the first slide.
+
  - Ensure `capture_method = "iterative"`
  
 Slides skip / don't align with script
-  - Ensure all slides have a script file, and only one script file
+
+  - Ensure all slides have a script file, and only one script in HTML comments per slide
 
 Warning message like:
 
@@ -237,4 +239,4 @@ Warning messages:
   Consider 'structure(list(), *)' instead.
 ```
 
- - Check that your AWS keys are still valid
+   - Check that your AWS keys are still valid
