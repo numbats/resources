@@ -2,4 +2,4 @@
 
 A kaggle competition is easy to set up to create a class assignment where the students can objectively test their modeling skills. 
 
-A learnr tutorial created by Di can be found at https://ebsmonash.shinyapps.io/kaggle_instructions
+A learnr tutorial created by Di Cook can be found at https://ebsmonash.shinyapps.io/kaggle_instructions
