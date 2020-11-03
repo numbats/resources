@@ -1,4 +1,4 @@
-# ari
+# Automated video making with ari
 
 **A**utomated
 

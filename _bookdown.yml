@@ -21,5 +21,6 @@ rmd_files: [ "index.Rmd",
              "tidying-data.Rmd",
              "slides.Rmd",
              "flexdashboard.Rmd",
+             "kaggle.Rmd",
              "learn-more.Rmd"
             ]
