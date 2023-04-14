@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Resources for learning R</title>
+  <title>5 Debugging in R | Resources for learning R</title>
   <meta name="description" content="R Resources" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Resources for learning R" />
+  <meta property="og:title" content="5 Debugging in R | Resources for learning R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="R Resources" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Resources for learning R" />
+  <meta name="twitter:title" content="5 Debugging in R | Resources for learning R" />
   
   <meta name="twitter:description" content="R Resources" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="installing-r.html"/>
+<link rel="prev" href="rmarkdown.html"/>
+<link rel="next" href="git-and-version-control.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -253,28 +253,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Resources for learning R</h1>
-<p class="author"><em>Nicholas Tierney</em></p>
-<p class="date"><em>2023-04-14</em></p>
-</div>
-<div id="about" class="section level1 unnumbered hasAnchor">
-<h1>About<a href="index.html#about" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This page exists to help collate together R resources for the NUMBATs group, to direct students to places to learn more about specific R content. It is not intended as a replacement for courses, but instead a place where people can go to learn more.</p>
-<p>The core principles for the resources on this page are:</p>
+<div id="debugging-in-r" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> Debugging in R<a href="debugging-in-r.html#debugging-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>When you are working with functions that you have created yourself, you might encounter an error coming from inside the function. Identifying what the problem (or “bug”) is, can be hard, as you need to “step inside” the function.</p>
+<p>You can step inside a function by running <code>debugonce("function_name")</code>, in the console. This will allow you to step into the function (“function_name”) and explore the code, line by line, as if you were running an R script interactively. As the name suggests, <code>debugonce</code> will allow you to “debug” exactly “once”. You can also run, <code>debug("function_name")</code>, but you will need to run <code>undebug("function_name")</code> afterwards to turn it off again.</p>
+<p>Another approach is to place <code>browser</code> inside the function, like so:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="debugging-in-r.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">my_function</span>(x){</span>
+<span id="cb9-2"><a href="debugging-in-r.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">browser</span>()</span>
+<span id="cb9-3"><a href="debugging-in-r.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">+</span> y</span>
+<span id="cb9-4"><a href="debugging-in-r.html#cb9-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>This will allow you to step into the function when <code>my_function</code> is called. Make sure to remember to delete <code>browser()</code> after you are done!</p>
+<p>This is a very brief description of debugging, to read more on this, see the following resources:</p>
 <ul>
-<li>Content should be fresh and relevant, rooted in practical example, “why should we care”</li>
-<li>The way these resources are distributed should be:
-<ul>
-<li>Accessible, reproducible, extendible</li>
-</ul></li>
-<li>Links shared must work</li>
-</ul>
-<p><strong>Got an idea? Want a resource on a particular area?</strong></p>
-<ul>
-<li>You can <a href="https://github.com/numbats/resources/issues/new">submit an issue</a></li>
-<li>You can contribute by <a href="">editing the rmd directly</a> or forking and making a pull request</li>
-<li>Ping Nick Tierney on the NUMBATs Slack</li>
+<li><a href="https://adv-r.hadley.nz/debugging.html" class="uri">https://adv-r.hadley.nz/debugging.html</a></li>
+<li><a href="https://jozef.io/r916-exploring-r-code-interactively/" class="uri">https://jozef.io/r916-exploring-r-code-interactively/</a></li>
+<li><a href="https://rstudio-education.github.io/hopr/debug.html" class="uri">https://rstudio-education.github.io/hopr/debug.html</a></li>
+<li>RStudio IDE break-points to track down errors in code, particularly &gt; if you have multiple functions: <a href="https://rstudio-education.github.io/hopr/debug.html\#break-points" class="uri">https://rstudio-education.github.io/hopr/debug.html\#break-points</a></li>
+<li><a href="%3Chttps://www.youtube.com/watch?v=M5n_2jmdJ_8">A video by Miles McBain</a> covering how to approach errors using {recover}, to help track down errors across multiple functions.</li>
 </ul>
 
 </div>
@@ -283,8 +278,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-
-<a href="installing-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="rmarkdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="git-and-version-control.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -315,7 +310,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/numbats/resources/edit/master/index.Rmd",
+"link": "https://github.com/numbats/resources/edit/master/debug.Rmd",
 "text": "Edit"
 },
 "history": {

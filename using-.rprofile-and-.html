@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Resources for learning R</title>
+  <title>11 Using .Rprofile and .Renviron | Resources for learning R</title>
   <meta name="description" content="R Resources" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Resources for learning R" />
+  <meta property="og:title" content="11 Using .Rprofile and .Renviron | Resources for learning R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="R Resources" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Resources for learning R" />
+  <meta name="twitter:title" content="11 Using .Rprofile and .Renviron | Resources for learning R" />
   
   <meta name="twitter:description" content="R Resources" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="installing-r.html"/>
+<link rel="prev" href="automated-video-making-with-ari.html"/>
+<link rel="next" href="vectors-and-lists.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -253,38 +253,109 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Resources for learning R</h1>
-<p class="author"><em>Nicholas Tierney</em></p>
-<p class="date"><em>2023-04-14</em></p>
-</div>
-<div id="about" class="section level1 unnumbered hasAnchor">
-<h1>About<a href="index.html#about" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This page exists to help collate together R resources for the NUMBATs group, to direct students to places to learn more about specific R content. It is not intended as a replacement for courses, but instead a place where people can go to learn more.</p>
-<p>The core principles for the resources on this page are:</p>
+<div id="using-.rprofile-and-.renviron" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">11</span> Using .Rprofile and .Renviron<a href="using-.rprofile-and-.html#using-.rprofile-and-.renviron" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Your <code>.Rprofile</code> and <code>.Renviron</code> are special files that R looks for when it opens. You can put certain bits of code in there to customise your R experience - this can be really useful for some things, saving you time. It also comes with two warnings:
+1. Be careful, this has the potential to make your work not reproducible if not used carefully.
+2. Never ever commit a file containing an API key.</p>
+<p>Some of the example things that editing your <code>.Rprofile</code> and <code>.Renviron</code> file can do are:</p>
 <ul>
-<li>Content should be fresh and relevant, rooted in practical example, “why should we care”</li>
-<li>The way these resources are distributed should be:
-<ul>
-<li>Accessible, reproducible, extendible</li>
-</ul></li>
-<li>Links shared must work</li>
+<li>Custom start up messages or prompt for R</li>
+<li>Set up API keys for things like google maps, Amazon Web Services, and GitHub keys</li>
+<li>Load packages for you</li>
+<li>Load details for setting up your R package details</li>
 </ul>
-<p><strong>Got an idea? Want a resource on a particular area?</strong></p>
+<p>This section discusses how to use and edit <code>.Rprofile</code> and <code>.Renviron</code>, and the sort of things you can place in them.</p>
+<div id="rprofile" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> .Rprofile<a href="using-.rprofile-and-.html#rprofile" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Your R profile file, <code>.Rprofile</code>, contains R code that runs when R starts up.</p>
+<p>If you do a lot of R package development it might be useful to have this code in your <code>.Rprofile</code>:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="using-.rprofile-and-.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">interactive</span>()) {</span>
+<span id="cb22-2"><a href="using-.rprofile-and-.html#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">suppressMessages</span>(<span class="fu">require</span>(devtools))</span>
+<span id="cb22-3"><a href="using-.rprofile-and-.html#cb22-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>very important</strong> - only use packages that you use interactively in this way - you almost certainly don’t want packages like <code>tidyverse</code> and friends here.</p>
+<p>To edit your R profile, write <code>usethis::edit_r_profile()</code> into the console, and:</p>
+<ol style="list-style-type: decimal">
+<li>modify your <code>.Rprofile</code> and save it (ensuring a blank line is left at the end!!!) and</li>
+<li>Restart R for changes to take place).</li>
+</ol>
+<p><strong>Example R profiles</strong></p>
+<p>The R packages book provides a good setup guide for getting started (<a href="https://r-pkgs.org/setup.html#personal-startup-configuration">Setup chapter</a>)</p>
+<p>Some people share their R profiles online, these types of things are sometimes called, “dotfiles”. For example:</p>
 <ul>
-<li>You can <a href="https://github.com/numbats/resources/issues/new">submit an issue</a></li>
-<li>You can contribute by <a href="">editing the rmd directly</a> or forking and making a pull request</li>
-<li>Ping Nick Tierney on the NUMBATs Slack</li>
+<li><a href="https://github.com/earowang/dotfiles">Earo Wang</a></li>
+<li><a href="https://github.com/njtierney/dotfiles">Nick Tierney</a></li>
+<li><a href="https://github.com/jimhester/dotfiles">Jim Hester</a></li>
+<li><a href="https://github.com/HenrikBengtsson/dotfiles-for-R">Henrik Bengtsson</a></li>
+</ul>
+<p>Dotfiles are a more general concept that apply to things outside of R, so you might see some other languages there as well!</p>
+</div>
+<div id="renviron" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> .Renviron<a href="using-.rprofile-and-.html#renviron" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Your R environment file, <code>.Renviron</code>, does not contain R code. It contains environment variables. What even are “Environment Variables”? They are named values that tell some external application some information.</p>
+<p>For example, we are telling AWS our KEY ID and ACCESS KEY, and it uses that information to verify who we are. You can think of it like a username and password. They often look something like this:</p>
+<pre><code>AWS_ACCESS_KEY_ID=HFepbTd3gnHeL5w3IJFZ
+GOOGLE_MAPS_API=VpewOKpQ5Y4ir48R78n2
+ANOTHER_API=olAs4e1OX5qP2cD4Kp4U</code></pre>
+<p>These each refer to an AWS access key id, a google maps API key, and some other API key. This sort of format might sometimes referred to as <code>key-value</code> pairs, the thing on the left is the key, and the thing on the right is that key’s value. E.g., <code>name: Nick</code> - the key is “name”, and it’s value is “Nick”).</p>
+<p>You can read more on Environment Variables at this <a href="https://medium.com/chingu/an-introduction-to-environment-variables-and-how-to-use-them-f602f66d15fa">medium post</a> and on <a href="https://en.wikipedia.org/wiki/Environment_variable">wikipedia (yes, they are that important that they get their own wiki page!)</a>. You can also learn more about how R uses this (and what R does when it boots up) by looking at the helpfile for <code>Startup</code> - <code>?Startup</code>.</p>
+<div id="how-do-i-use-it" class="section level3 hasAnchor" number="11.2.1">
+<h3><span class="header-section-number">11.2.1</span> How do I use it?<a href="using-.rprofile-and-.html#how-do-i-use-it" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>.Renviron</code> is a special file that you can store these environmental keys. The way this works is that when R starts up, it searches for a <code>.Renviron</code> file (located at <code>fs::path_home()</code>, or within the current folder) and then loads the environment variables there.</p>
+<p>To use it, edit your <code>.Renviron</code> file with <code>usethis::edit_r_environ()</code></p>
+<p>This opens up the <code>.Renviron</code> file, and tells you to restart R for changes to take effect:</p>
+<pre><code>&gt; usethis::edit_r_environ()
+● Modify &#39;/Users/ntie0001/.Renviron&#39;
+● Restart R for changes to take effect</code></pre>
+<p>So you would edit the file and place something like the following in it:</p>
+<pre><code>AWS_ACCESS_KEY_ID=eim417O8HbM0A21g4uv8
+AWS_SECRET_ACCESS_KEY=svIr03835X5tdndEw7c5CRaAOYbSj04rA2p302il
+AWS_DEFAULT_REGION=ap-southeast-2</code></pre>
+<p>Then, follow the instructions from <code>usethis</code>, and:</p>
+<ol style="list-style-type: decimal">
+<li>Save the opened “.Renviron” file - ensure that there is a blank line at the end</li>
+<li>Close the “.Renviron” file.</li>
+<li>Restart R</li>
+</ol>
+</div>
+<div id="some-other-use-cases-of-.renviron" class="section level3 hasAnchor" number="11.2.2">
+<h3><span class="header-section-number">11.2.2</span> Some other use cases of <code>.Renviron</code><a href="using-.rprofile-and-.html#some-other-use-cases-of-.renviron" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Set R flags</strong></p>
+<pre><code>_R_CHECK_LENGTH_1_LOGIC2_=verbose
+_R_CHECK_LENGTH_1_CONDITION_=true</code></pre>
+<p>These avoid potential misuse of logical vector tests (mentioned in <a href="https://github.com/MilesMcBain/dflow" class="uri">https://github.com/MilesMcBain/dflow</a>)</p>
+<p><strong>Use within a specific project</strong></p>
+<p>You can set up a <code>.env</code> file in a project to load environment variables - as seen in <a href="https://github.com/MilesMcBain/dflow" class="uri">https://github.com/MilesMcBain/dflow</a></p>
+</div>
+<div id="a-cautionary-note-on-sharing-keys.-1" class="section level3 hasAnchor" number="11.2.3">
+<h3><span class="header-section-number">11.2.3</span> A cautionary note on sharing keys.<a href="using-.rprofile-and-.html#a-cautionary-note-on-sharing-keys.-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Remember to NEVER EVER commit files containing keys to github. If you notice that you have, you should immediately delete these keys from wherever the keys are from to prevents them from further use.</p>
+<p>Sometimes to get an API key you need to use a credit card - for use if you exceed some set number of computations in a time limit. This means if someone gets a hold of your API keys, it is like they get access to your username and password for something - and they might start running a lot of computations in your good name. It</p>
+<p>They can potentially rack up many hours of time on, say, AWS servers, which in turn could cost you serious <code>$$$</code>. There are bots that trawl through github looking for tokens like this, and your code will persist even if you commit over them.</p>
+<p>So if you have accidentally commited an API key, id, or username + password, is not so much a case of <strong>if</strong> they will get stolen, but <strong>when</strong>. Consider yourself warned.</p>
+</div>
+</div>
+<div id="learning-more" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> Learning more<a href="using-.rprofile-and-.html#learning-more" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>To learn more about <code>.Rprofile</code> and <code>.Renviron</code>, look at the helpfile for <code>Startup</code> - <code>?Startup</code>.</li>
+<li><a href="https://r-pkgs.org/setup.html#personal-startup-configuration">Setup recommended in R packages</a></li>
+<li>Read the usethis page</li>
+<li><a href="https://rstats.wtf/r-startup.html">Rstats What they forgot to teach you - chapter 7</a></li>
+<li><a href="https://stackoverflow.com/questions/15983803/what-is-the-difference-betwwen-rprofile-renviron-and-rprofile-site-renvir">Stack overflow: difference between rprofile, renviron</a></li>
+<li><a href="https://csgillespie.github.io/efficientR/set-up.html#r-startup">Efficient R programming: R Startup</a></li>
+<li><a href="https://support.rstudio.com/hc/en-us/articles/360047157094-Managing-R-with-Rprofile-Renviron-Rprofile-site-Renviron-site-rsession-conf-and-repos-conf">Managing R with .Rprofile, .Renviron, Rprofile.site, Renviron.site, rsession.conf, and repos.conf by Alex Gold</a></li>
 </ul>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="installing-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="automated-video-making-with-ari.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="vectors-and-lists.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -315,7 +386,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/numbats/resources/edit/master/index.Rmd",
+"link": "https://github.com/numbats/resources/edit/master/rprofile-renviron.Rmd",
 "text": "Edit"
 },
 "history": {

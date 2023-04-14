@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Resources for learning R</title>
+  <title>7 shiny | Resources for learning R</title>
   <meta name="description" content="R Resources" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Resources for learning R" />
+  <meta property="og:title" content="7 shiny | Resources for learning R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="R Resources" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Resources for learning R" />
+  <meta name="twitter:title" content="7 shiny | Resources for learning R" />
   
   <meta name="twitter:description" content="R Resources" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="installing-r.html"/>
+<link rel="prev" href="git-and-version-control.html"/>
+<link rel="next" href="visualisation.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -253,38 +253,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Resources for learning R</h1>
-<p class="author"><em>Nicholas Tierney</em></p>
-<p class="date"><em>2023-04-14</em></p>
-</div>
-<div id="about" class="section level1 unnumbered hasAnchor">
-<h1>About<a href="index.html#about" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This page exists to help collate together R resources for the NUMBATs group, to direct students to places to learn more about specific R content. It is not intended as a replacement for courses, but instead a place where people can go to learn more.</p>
-<p>The core principles for the resources on this page are:</p>
+<div id="shiny" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">7</span> shiny<a href="shiny.html#shiny" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Shiny is a really awesome way to enhance your R script, package, or method. Shiny turns these into ‘apps’, that people can interact with. You should consider using shiny if you want to create a way for people to interact with their data and produce output like a report or plots. See some more details below on getting started.</p>
+<div id="introductory" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Introductory<a href="shiny.html#introductory" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Content should be fresh and relevant, rooted in practical example, “why should we care”</li>
-<li>The way these resources are distributed should be:
+<li><p><a href="https://mastering-shiny.org/basic-app.html" class="uri">https://mastering-shiny.org/basic-app.html</a></p>
 <ul>
-<li>Accessible, reproducible, extendible</li>
+<li>This section gets you started with the basics of a shiny app</li>
+<li>This from an in-progress book <a href="https://mastering-shiny.org/" class="uri">https://mastering-shiny.org/</a> by Hadley Wickham, which goes from first steps, to handling issues in putting apps in production. The book is still being written, but is due to be finished by the end of 2020.</li>
 </ul></li>
-<li>Links shared must work</li>
-</ul>
-<p><strong>Got an idea? Want a resource on a particular area?</strong></p>
+<li><p><a href="https://shiny.rstudio.com/tutorial/" class="uri">https://shiny.rstudio.com/tutorial/</a></p>
 <ul>
-<li>You can <a href="https://github.com/numbats/resources/issues/new">submit an issue</a></li>
-<li>You can contribute by <a href="">editing the rmd directly</a> or forking and making a pull request</li>
-<li>Ping Nick Tierney on the NUMBATs Slack</li>
+<li>Provides a 2 hour video tutorial, with the links below being timestamped sections of the video where it discusses specific concepts</li>
+<li>Also links to other good tutorials</li>
+</ul></li>
+<li><p>Publishing / deploying shiny apps</p>
+<ul>
+<li><a href="https://shiny.rstudio.com/deploy/" class="uri">https://shiny.rstudio.com/deploy/</a></li>
+</ul></li>
+<li><p>Debugging shiny</p>
+<ul>
+<li><a href="https://rstudio.com/resources/shiny-dev-con/debugging-techniques/" class="uri">https://rstudio.com/resources/shiny-dev-con/debugging-techniques/</a></li>
+<li><a href="https://mastering-shiny.org/action-workflow.html" class="uri">https://mastering-shiny.org/action-workflow.html</a></li>
+<li><a href="https://shiny.rstudio.com/articles/debugging.html" class="uri">https://shiny.rstudio.com/articles/debugging.html</a></li>
+</ul></li>
+<li><p><a href="https://github.com/rstudio/cheatsheets/raw/master/shiny.pdf">Cheat sheet</a></p></li>
+<li><p>Past workshops on {shiny}:</p>
+<ul>
+<li><a href="https://github.com/rstudio-education/intro-shiny-rmarkdown" class="uri">https://github.com/rstudio-education/intro-shiny-rmarkdown</a></li>
+<li><a href="https://github.com/laderast/gradual_shiny" class="uri">https://github.com/laderast/gradual_shiny</a></li>
+<li><a href="https://github.com/jcheng5/rstudio2017-shiny-workshop/tree/master/slides" class="uri">https://github.com/jcheng5/rstudio2017-shiny-workshop/tree/master/slides</a></li>
+<li><a href="https://github.com/rstudio-education/shiny-sdss18" class="uri">https://github.com/rstudio-education/shiny-sdss18</a></li>
+</ul></li>
+<li><p>Many resources found via: <a href="https://github.com/mitchelloharawild/shiny-intermediate-workshop" class="uri">https://github.com/mitchelloharawild/shiny-intermediate-workshop</a></p></li>
 </ul>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="installing-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="git-and-version-control.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visualisation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -315,7 +329,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/numbats/resources/edit/master/index.Rmd",
+"link": "https://github.com/numbats/resources/edit/master/shiny.Rmd",
 "text": "Edit"
 },
 "history": {

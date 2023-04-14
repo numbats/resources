@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Resources for learning R</title>
+  <title>2 Troubleshooting | Resources for learning R</title>
   <meta name="description" content="R Resources" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Resources for learning R" />
+  <meta property="og:title" content="2 Troubleshooting | Resources for learning R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="R Resources" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Resources for learning R" />
+  <meta name="twitter:title" content="2 Troubleshooting | Resources for learning R" />
   
   <meta name="twitter:description" content="R Resources" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="installing-r.html"/>
+<link rel="prev" href="installing-r.html"/>
+<link rel="next" href="reporting-problems-with-your-code.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -253,38 +253,92 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Resources for learning R</h1>
-<p class="author"><em>Nicholas Tierney</em></p>
-<p class="date"><em>2023-04-14</em></p>
-</div>
-<div id="about" class="section level1 unnumbered hasAnchor">
-<h1>About<a href="index.html#about" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This page exists to help collate together R resources for the NUMBATs group, to direct students to places to learn more about specific R content. It is not intended as a replacement for courses, but instead a place where people can go to learn more.</p>
-<p>The core principles for the resources on this page are:</p>
+<div id="troubleshooting" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Troubleshooting<a href="troubleshooting.html#troubleshooting" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>To learn R effectively, you need to learn how to get unstuck with R. Remember that everyone, even the experienced R users, still get stuck and stumped. I’ve been programming with R for over 7 years and I regularly come across issues I can’t solve. Sometimes they’re complex, but more often than not, they are simple issues to do with typos, or me not using something correctly. As you get more confidence with using R, you will become faster at becoming unstuck.</p>
+<div id="theres-a-problem-with-my-r-code" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> There’s a problem with my R code<a href="troubleshooting.html#theres-a-problem-with-my-r-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This post, <a href="https://stat545.com/help-general.html">how to get unstuck with R</a>, teaches a really good process to iterate through when going through the process of getting unstuck.</p>
+<p>For other problems in R, try following this process:</p>
+<div id="phase-1-typos-spelling" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Phase 1: Typos + Spelling<a href="troubleshooting.html#phase-1-typos-spelling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>Content should be fresh and relevant, rooted in practical example, “why should we care”</li>
-<li>The way these resources are distributed should be:
-<ul>
-<li>Accessible, reproducible, extendible</li>
-</ul></li>
-<li>Links shared must work</li>
+<li>Check for typos. Do you have a spelling mistake?</li>
+<li>Are you missing an opening or closing bracket? (remember the three types of bracket <code>()</code>, <code>[]</code>, <code>{}</code>).</li>
+<li>Are you missing an opening / closing quote, <code>"</code> or <code>'</code>?</li>
+<li>Are you missing a comma? Or have you got an extra one?</li>
+<li>Did you leave a trailing <code>%&gt;%</code> or <code>+</code> at the end of a line of code?</li>
+<li>Have you checked for typos again?</li>
+<li>Check for typos one more time.</li>
+<li>Restart R</li>
 </ul>
-<p><strong>Got an idea? Want a resource on a particular area?</strong></p>
+<p>Repeat this process until you are sure these aren’t the issue. I have, on several occasions, spent an entire day chasing an error, optimising my R code, doing a lot of work really, and the main issue was a missing comma.</p>
+</div>
+<div id="phase-two-google-is-your-friend-and-so-is-r" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Phase Two: Google is your friend and so is R<a href="troubleshooting.html#phase-two-google-is-your-friend-and-so-is-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>You can <a href="https://github.com/numbats/resources/issues/new">submit an issue</a></li>
-<li>You can contribute by <a href="">editing the rmd directly</a> or forking and making a pull request</li>
-<li>Ping Nick Tierney on the NUMBATs Slack</li>
+<li>Copy and paste the error message into google. See what comes up.</li>
+<li>If that doens’t work, try removing extra detail that might be project specific</li>
+<li>You can also try <a href="https://rseek.org/">RSeek</a>, basically a google search that filters by R related content.</li>
+<li>If it is related to a specific function, check that I’m using it correctly by reading the helpfile.
+<ul>
+<li>Write <code>?FUNCTION</code> into the console, and scroll through to the bottom to look at the examples. Check if you are using the function the right way. Then, read through the helpfile to check the inputs are right. For example, you might be giving a function the wrong input.
+<ul>
+<li>e.g., <code>mean(1,2,3)</code> vs <code>mean(c(1,2,3))</code> vs <code>mean(c("1", "2", "3"))</code>. The second one is the correct one, since <code>mean</code> takes a vector as input.</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="phase-three-ask-google-again" class="section level3 hasAnchor" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Phase Three: Ask google again<a href="troubleshooting.html#phase-three-ask-google-again" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Ask google for help again, but this time try to ask about the problem you are solving.</li>
+<li>“The google formula”: “how to” (your problem/question) “rstats”
+<ul>
+<li>Examples:
+<ul>
+<li>You are trying to calculate the mean in R with <code>mean(100, 102, 103)</code>, but your answer doens’t make sense. You can google “How to calculate the mean in rstats”</li>
+<li><code>lm(Ozone ~ Solar.R)</code> returns: <code>Error in eval(predvars, data, env) : object 'Ozone' not found</code>. In response, google, “Using lm for linear model rstats” and look at the examples they use.</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="phase-four-rubber-duck" class="section level3 hasAnchor" number="2.1.4">
+<h3><span class="header-section-number">2.1.4</span> Phase Four: Rubber Duck<a href="troubleshooting.html#phase-four-rubber-duck" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Try explaining the code to yourself. This is sometimes called “rubber duck debugging”. This is where you place a rubber duck/inanimate object on your computer and explain, carefully, what you are doing.</li>
+<li>Try explaining the code to a colleague. Like a rubber duck, but they can talk back.</li>
+<li>Try creating a <a href="https://reprex.tidyverse.org/">reproducible example</a> to see if you can recreate the issue you are experiencing. This is really useful because it means that you can transport your problem very efficiently to someone else. Or, if you cannot reproduce the error, then it means there might be another issue, like referring to an object you created in another R session. It takes a bit of practice to create reproducible examples, see the chapter <a href="">reproducible examples</a> for more detail.</li>
+</ul>
+</div>
+</div>
+<div id="asking-for-help" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Asking for help<a href="troubleshooting.html#asking-for-help" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Remember that it is 100% OK and “the norm” to use resources like <a href="https://stackoverflow.com">Stack Overflow</a>, <a href="https://community.rstudio.com/">Rstudio community</a>, and other people’s blog posts, to help you solve a problem.</p>
+<p>If you’re still a bit stuck after trying the process above, that’s OK! I recommend posting a question in these two places (in order of preference):</p>
+<ul>
+<li><a href="https://community.rstudio.com/">RStudio community</a> - They provide a nice, friendly space to ask questions that don’t necessarily fit into GitHub issues, bug reports, or Stack Overflow.</li>
+<li><a href="https://stackoverflow.com">StackOverflow</a> - if you’ve specified a good <a href="https://reprex.tidyverse.org/">reproducible example</a> here, there are good chances it will be able to be solved.</li>
+</ul>
+</div>
+<div id="package-install-library-errors" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Package install / library errors<a href="troubleshooting.html#package-install-library-errors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Sometimes there are errors that appear when you install packages or load them with <code>library</code>. This <a href="https://www.njtierney.com/post/2020/05/29/there-is-no-pkg/">blog post</a> helps address one of the variants of this error:</p>
+<ul>
+<li><code>Error in loadNamespace(name) : there is no package called 'here'</code></li>
+<li><code>Error in library(here) : there is no package called 'here'</code></li>
+<li><code>Warning in install.packages : package ‘emo’ is not available (for R version 3.6.2)</code></li>
 </ul>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="installing-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="installing-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="reporting-problems-with-your-code.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -315,7 +369,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/numbats/resources/edit/master/index.Rmd",
+"link": "https://github.com/numbats/resources/edit/master/troubleshoot.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Resources for learning R</title>
+  <title>8 Visualisation | Resources for learning R</title>
   <meta name="description" content="R Resources" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Resources for learning R" />
+  <meta property="og:title" content="8 Visualisation | Resources for learning R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="R Resources" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Resources for learning R" />
+  <meta name="twitter:title" content="8 Visualisation | Resources for learning R" />
   
   <meta name="twitter:description" content="R Resources" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="installing-r.html"/>
+<link rel="prev" href="shiny.html"/>
+<link rel="next" href="spatial-data.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -253,38 +253,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Resources for learning R</h1>
-<p class="author"><em>Nicholas Tierney</em></p>
-<p class="date"><em>2023-04-14</em></p>
-</div>
-<div id="about" class="section level1 unnumbered hasAnchor">
-<h1>About<a href="index.html#about" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This page exists to help collate together R resources for the NUMBATs group, to direct students to places to learn more about specific R content. It is not intended as a replacement for courses, but instead a place where people can go to learn more.</p>
-<p>The core principles for the resources on this page are:</p>
+<div id="visualisation" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">8</span> Visualisation<a href="visualisation.html#visualisation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="ggplot2" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> ggplot2<a href="visualisation.html#ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If you are going to do a plot in R, you should consider using ggplot2 for most use cases. It takes a short time to get the hang of, and once you’ve got it down you can create plots that make sense, behave how you expect, and look fantastic.</p>
+<p>ggplot follows a logical syntax adapted from the book “The Grammar of Graphics”. It makes visualisation make sense. And there are lots of other packages that build upon it to make it more awesome, such as <a href="https://ggobi.github.io/ggally/">GGally</a>, <a href="https://github.com/hrbrmstr/ggalt">ggalt</a>, <a href="https://cran.r-project.org/web/packages/ggExtra/index.html">ggExtra</a>, <a href="https://cran.r-project.org/web/packages/ggforce/index.html">ggforce</a>, <a href="https://github.com/dgrtwo/gganimate">gganimate</a>, and <a href="https://cran.r-project.org/web/packages/ggbeeswarm/index.html">ggbeeswarm</a>, to name a few!</p>
+<p>Here are some ggplot resources in order of usefulness</p>
 <ul>
-<li>Content should be fresh and relevant, rooted in practical example, “why should we care”</li>
-<li>The way these resources are distributed should be:
+<li>The <a href="https://www.rstudio.com/wp-content/uploads/2015/05/ggplot2-cheatsheet.pdf">RStudio ggplot cheatsheet</a> sits pinned up above my desk.</li>
+<li><a href="https://r4ds.had.co.nz/data-visualisation.html" class="uri">https://r4ds.had.co.nz/data-visualisation.html</a>
 <ul>
-<li>Accessible, reproducible, extendible</li>
+<li><a href="https://r4ds.had.co.nz/graphics-for-communication.html" class="uri">https://r4ds.had.co.nz/graphics-for-communication.html</a></li>
 </ul></li>
-<li>Links shared must work</li>
+<li><a href="ggplot2.tidyverse.org">The official documentation</a></li>
+<li><a href="https://www.cookbook-r.com/Graphs/">The R Graphics Cookbook</a> usually has the answers for what I’m after.</li>
+<li>I also recently discovered the <a href="https://github.com/hadley/ggplot2/wiki">ggplot2 wiki</a>, which has some great case studies and examples.</li>
+<li><a href="https://www.ceb-institute.org/bbs/wp-content/uploads/2011/09/handout_ggplot2.pdf">This handout</a> provides an introduction to ggplot.</li>
 </ul>
-<p><strong>Got an idea? Want a resource on a particular area?</strong></p>
-<ul>
-<li>You can <a href="https://github.com/numbats/resources/issues/new">submit an issue</a></li>
-<li>You can contribute by <a href="">editing the rmd directly</a> or forking and making a pull request</li>
-<li>Ping Nick Tierney on the NUMBATs Slack</li>
-</ul>
+<p>For more detailed explanations on ggplot2, how it works, how to create your own geoms, and more, I’d recommend <a href="https://ggplot2-book.org/">the official book</a>, and Bob Rudis’ short book on <a href="https://rud.is/books/creating-ggplot2-extensions/">creating ggplot2 extensions</a></p>
+</div>
+<div id="plotly" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> plotly<a href="visualisation.html#plotly" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Plotly for R, written and maintained by <a href="https://cpsievert.github.io">Carson Sievert</a>, is a very powerful and flexible interactive plotting engine in R. It has a fully fledged API for writing interactive graphics in R, as well as a fantastic function that gives the user a lot for free: <code>ggplotly</code>. You can read more about plotly for R in Carson’s <a href="https://plotly-r.com/">free and online book</a>.</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="installing-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="shiny.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="spatial-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -315,7 +316,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/numbats/resources/edit/master/index.Rmd",
+"link": "https://github.com/numbats/resources/edit/master/visualisation.Rmd",
 "text": "Edit"
 },
 "history": {

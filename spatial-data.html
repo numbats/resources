@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Resources for learning R</title>
+  <title>9 Spatial data | Resources for learning R</title>
   <meta name="description" content="R Resources" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Resources for learning R" />
+  <meta property="og:title" content="9 Spatial data | Resources for learning R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="R Resources" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Resources for learning R" />
+  <meta name="twitter:title" content="9 Spatial data | Resources for learning R" />
   
   <meta name="twitter:description" content="R Resources" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="installing-r.html"/>
+<link rel="prev" href="visualisation.html"/>
+<link rel="next" href="automated-video-making-with-ari.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -253,29 +253,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Resources for learning R</h1>
-<p class="author"><em>Nicholas Tierney</em></p>
-<p class="date"><em>2023-04-14</em></p>
-</div>
-<div id="about" class="section level1 unnumbered hasAnchor">
-<h1>About<a href="index.html#about" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This page exists to help collate together R resources for the NUMBATs group, to direct students to places to learn more about specific R content. It is not intended as a replacement for courses, but instead a place where people can go to learn more.</p>
-<p>The core principles for the resources on this page are:</p>
+<div id="spatial-data" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">9</span> Spatial data<a href="spatial-data.html#spatial-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Spatial data analysis can be really different to anything else that you’ve done in R. Fortunately, <a href="https://www.r-consortium.org/blog/2017/01/03/simple-features-now-on-cran">recent awesome progress</a> has been made on the simple features R package, officially supported by the RConsortium, and authored by <a href="https://github.com/edzer">Edzer Pebesma</a>. The format of simple features is to adopt a standard dataframe format, where every row is a spatial feature, and the spatial features are described in a geometry list column. This is really fantastic, because it means that (for the most part), working with spatial data is very similar to working with regular dataframes, which is the bread and butter of analysis and data wrangling in R.</p>
+<p>In particular, simple features is designed to play nicely with <a href="https://tidyverse.org/">the tidyverse</a>, and accordingly plays well with ggplot2, dplyr, purrr, and so on. It’s amazing.</p>
+<p>Here is a list of resources on using spatial data in R:</p>
 <ul>
-<li>Content should be fresh and relevant, rooted in practical example, “why should we care”</li>
-<li>The way these resources are distributed should be:
-<ul>
-<li>Accessible, reproducible, extendible</li>
-</ul></li>
-<li>Links shared must work</li>
+<li><p>The <a href="https://r-spatial.org/">R Spatial Blog</a> is a great way to stay updated with the latest changes in simple features.</p></li>
+<li><p><a href="https://strimas.com/r/tidy-sf/">A blog post by Matt Strimas-Mackey</a> on how to use simple features with dplyr, tidyr, and ggplot2.</p></li>
+<li><p><a href="https://sharpsightlabs.com/blog/mapping-france-night/">Mapping France at night</a></p></li>
+<li><p><a href="https://walkerke.github.io/2016/12/spatial-pipelines/">Spatial Pipelines</a></p></li>
+<li><p><a href="https://edzer.github.io/sfr/articles/">Simple Features Vignettes</a></p></li>
+<li><p><a href="https://rpubs.com/cyclemumner/sf-ggraph">Using simple features with ggraph</a></p></li>
+<li><p><a href="https://rpubs.com/cyclemumner/sf-plotting">A comparison of plotting in sp compared to sf</a></p></li>
+<li><p><a href="https://geocompr.robinlovelace.net/">Geocomputation with R (a book)</a></p></li>
+<li><p><a href="https://cran.r-project.org/web/views/Spatial.html">The R Task View on Spatial Data</a></p></li>
+<li><p><a href="https://www.jessesadler.com/post/gis-with-r-intro/">Introduction to GIS with R</a></p></li>
+<li><p><a href="https://www.stephdesilva.com/post/the-keys-to-the-kingdom/">Steph de Silva-Stammel’s blog post on resources for geospatial data and transport</a></p></li>
+<li><p><a href="https://github.com/mtennekes/tmap">The <code>tmap</code> package provides a great rich way to build static and interactive spatial plots in a layered approach similar to ggplot2</a></p></li>
+<li><p><a href="https://r-spatial.github.io/mapview/">The <code>mapview</code> package provides functions to very quickly and conveniently create interactive visualisations of spatial data.</a></p></li>
 </ul>
-<p><strong>Got an idea? Want a resource on a particular area?</strong></p>
+<p>For more thoughts on R for spatial data analysis:</p>
 <ul>
-<li>You can <a href="https://github.com/numbats/resources/issues/new">submit an issue</a></li>
-<li>You can contribute by <a href="">editing the rmd directly</a> or forking and making a pull request</li>
-<li>Ping Nick Tierney on the NUMBATs Slack</li>
+<li><a href="https://mdsumner.github.io/2017/01/10/spatial-r-2017.html">Michael Sumner’s overview</a> of R’s spatial capabilities for 2017.</li>
 </ul>
+<p>For interactive visualisation of spatial data, I really like RStudio’s <a href="https://rstudio.github.io/leaflet/">leaflet</a>, which is a port of the excellent <a href="https://leafletjs.com/">JavaScript leaflet library</a> is my go to place.</p>
+<p><a href="https://cran.r-project.org/web/packages/ggmap">ggmap</a>, is also great, as it produces static maps.</p>
 
 </div>
             </section>
@@ -283,8 +286,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-
-<a href="installing-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="visualisation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="automated-video-making-with-ari.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -315,7 +318,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/numbats/resources/edit/master/index.Rmd",
+"link": "https://github.com/numbats/resources/edit/master/spatial-data.Rmd",
 "text": "Edit"
 },
 "history": {

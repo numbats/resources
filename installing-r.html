@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Resources for learning R</title>
+  <title>1 Installing R | Resources for learning R</title>
   <meta name="description" content="R Resources" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Resources for learning R" />
+  <meta property="og:title" content="1 Installing R | Resources for learning R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="R Resources" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Resources for learning R" />
+  <meta name="twitter:title" content="1 Installing R | Resources for learning R" />
   
   <meta name="twitter:description" content="R Resources" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="installing-r.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="troubleshooting.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -253,38 +253,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Resources for learning R</h1>
-<p class="author"><em>Nicholas Tierney</em></p>
-<p class="date"><em>2023-04-14</em></p>
-</div>
-<div id="about" class="section level1 unnumbered hasAnchor">
-<h1>About<a href="index.html#about" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This page exists to help collate together R resources for the NUMBATs group, to direct students to places to learn more about specific R content. It is not intended as a replacement for courses, but instead a place where people can go to learn more.</p>
-<p>The core principles for the resources on this page are:</p>
+<div id="installing-r" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Installing R<a href="installing-r.html#installing-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>To get started with R, you need to download and install R, and RStudio. The two guides below provide some good stepwise on getting started with installing R and RStudio.</p>
 <ul>
-<li>Content should be fresh and relevant, rooted in practical example, “why should we care”</li>
-<li>The way these resources are distributed should be:
+<li><a href="https://github.com/sa-lee/installr">installr guide by Stuart Lee</a></li>
+<li><a href="https://stat545.com/install.html">STAT 545’s guide</a></li>
+</ul>
+<p>There is also a <a href="https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf">nice cheatsheet on using Rstudio</a></p>
+<p>There are some default options for Rstudio that I recommend setting, which help you improve your reproducibility, and security.(taken from <a href="https://rmd4sci.njtierney.com/rstudio-what-and-why.html#exercise-rstudio-default-options">this guide</a>).</p>
+<p>Tools &gt; Global Options (or <code>Cmd + ,</code> on macOS)</p>
+<p>Under the <strong>General</strong> tab:</p>
 <ul>
-<li>Accessible, reproducible, extendible</li>
+<li>For <strong>workspace</strong>
+<ul>
+<li>Uncheck restore .RData into workspace at startup</li>
+<li>Save workspace to .RData on exit : “Never”</li>
 </ul></li>
-<li>Links shared must work</li>
-</ul>
-<p><strong>Got an idea? Want a resource on a particular area?</strong></p>
+<li>For <strong>History</strong>
 <ul>
-<li>You can <a href="https://github.com/numbats/resources/issues/new">submit an issue</a></li>
-<li>You can contribute by <a href="">editing the rmd directly</a> or forking and making a pull request</li>
-<li>Ping Nick Tierney on the NUMBATs Slack</li>
+<li>Uncheck “Always save history (even when not saving .RData)</li>
+<li>Uncheck “Remove duplicate entries in history”</li>
+</ul></li>
 </ul>
+<div class="figure"><span style="display:block;" id="fig:fig-rstudio-workspace-options"></span>
+<img src="figs/rstudio-remove-data.png" alt="Setting the options right for RStudio, so you don't restore previous sessions work, and don't save it either." width="50%" />
+<p class="caption">
+Figure 1.1: Setting the options right for RStudio, so you don’t restore previous sessions work, and don’t save it either.
+</p>
+</div>
+<p>This means that you won’t save the objects and other things that you create in your R session and reload them. This is important for two reasons:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Reproducibility</strong>: you don’t want to have objects from last week cluttering your session</li>
+<li><strong>Privacy</strong>: you don’t want to save private data or other things to your session. You only want to read these in.</li>
+</ol>
+<p>Your “history” is the commands that you have entered into R. Not saving your history means that you won’t be relying on things that you typed in the last session, which is a good habit to get into! Also it saves R loading up every. single. object. You’ve created - which can add up to a lot over a few months. A colleague of mine once had issues with an RStudio project where it would take many minutes to load up, because it had stored all their data for 6 months worth of statistical analysis. This ended up being more RAM than they had. So, you can even save yourself some speed as well!</p>
+<div id="using-rstudio-projects" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Using RStudio projects<a href="installing-r.html#using-rstudio-projects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>I recommend setting up an RStudio project for your work. This helps encapsulate your projects. To learn more about this, see <a href="https://rmd4sci.njtierney.com/workflow.html">this chapter of Rmarkdown for Scientists</a>.</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="installing-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="troubleshooting.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -315,7 +331,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/numbats/resources/edit/master/index.Rmd",
+"link": "https://github.com/numbats/resources/edit/master/install.Rmd",
 "text": "Edit"
 },
 "history": {
